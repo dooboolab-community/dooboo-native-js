@@ -12,9 +12,8 @@ import {
   Button,
   View,
 } from 'react-native';
-import appStore from '../../stores/appStore';
 import { getString } from '../../../STRINGS';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
 type Props = {
   navigation: any;
@@ -23,20 +22,20 @@ type State = {
   cnt: number;
 }
 
-@observer
-export default class App extends Component<Props, State> {
+@inject('store') @observer
+class App extends Component<Props, State> {
   state = {
     cnt: 0,
   };
 
   componentDidMount() {
     // setTimeout(() => {
-    //   appStore.loading = true;
+    //   this.props.store.loading = true;
     // }, 3000);
   }
 
   render() {
-    // if (!appStore.loading) {
+    // if (!this.props.store.loading) {
     //   return (
     //     <Text>Loading</Text>
     //   );
@@ -51,8 +50,8 @@ export default class App extends Component<Props, State> {
           onPress={this.onClick}
         />
         <Text style={styles.instructions}>
-          {/* count: {this.state.cnt}{'\n'} */}
-          appStore.cnt: {appStore.cnt}
+          count: {this.state.cnt}{'\n'}
+          this.props.store.cnt: {this.props.store.cnt}
         </Text>
       </View>
     );
@@ -62,7 +61,7 @@ export default class App extends Component<Props, State> {
     // this.setState({
     //   cnt: this.state.cnt + 1,
     // });
-    appStore.cnt = appStore.cnt + 3;
+    this.props.store.cnt = this.props.store.cnt + 3;
   }
 }
 
@@ -84,3 +83,5 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+export default App;

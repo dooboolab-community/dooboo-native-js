@@ -1,52 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Intro component test renders as expected 1`] = `
-<Component
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#F5FCFF",
-      "flex": 1,
-      "justifyContent": "center",
+exports[`Home component test renders as expected 1`] = `
+<App
+  store={
+    ObservableListStore {
+      "cnt": 0,
+      "loading": false,
+      Symbol(mobx did run lazy initializers): true,
+      Symbol(mobx administration): ObservableObjectAdministration$$1 {
+        "defaultEnhancer": [Function],
+        "keysAtom": Atom$$1 {
+          "diffValue": 0,
+          "isBeingObserved": false,
+          "isPendingUnobservation": false,
+          "lastAccessedBy": 0,
+          "lowestObserverState": 2,
+          "name": "ObservableListStore@2.keys",
+          "observers": Set {},
+        },
+        "name": "ObservableListStore@2",
+        "target": [Circular],
+        "values": Map {
+          "cnt" => 0,
+          "loading" => false,
+        },
+      },
     }
   }
->
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "fontSize": 20,
-        "margin": 10,
-        "textAlign": "center",
-      }
-    }
-  >
-    Hello
-  </Text>
-  <Button
-    onPress={[Function]}
-    title="click"
-  />
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": "#333333",
-        "marginBottom": 5,
-        "textAlign": "center",
-      }
-    }
-  >
-    appStore.cnt: 
-  </Text>
-</Component>
+/>
 `;
 
-exports[`Intro renders without crashing 1`] = `
+exports[`Home renders without crashing 1`] = `
 <View
   style={
     Object {
@@ -130,7 +114,12 @@ exports[`Intro renders without crashing 1`] = `
       }
     }
   >
-    appStore.cnt: 
+    count: 
+    0
+    
+
+    this.props.store.cnt: 
+    0
   </Text>
 </View>
 `;

@@ -2,8 +2,8 @@ import { observable } from 'mobx';
 import { NavigationActions } from 'react-navigation';
 
 class ObservableListStore {
-  @observable _cnt: number = 0;
-  @observable _loading: boolean = false;
+  @observable cnt: number = 0;
+  @observable loading: boolean = false;
 }
 
 const observableListStore = new ObservableListStore();

@@ -5,8 +5,8 @@ import { YellowBox } from 'react-native';
 YellowBox.ignoreWarnings([
   // 'Warning: componentWillMount is deprecated',
   // 'Warning: isMounted',
-  'Warning: RCTCxxModule was not exported',
   'Warning: isMounted(...) is deprecated',
+  'Class RCTCxxModule',
   'Module RCTImageLoader'
 ]);
 
