@@ -58,9 +58,9 @@ class App extends Component<Props, State> {
   }
 
   onClick = () => {
-    // this.setState({
-    //   cnt: this.state.cnt + 1,
-    // });
+    this.setState({
+      cnt: this.state.cnt + 1,
+    });
     this.props.store.cnt = this.props.store.cnt + 3;
   }
 }
