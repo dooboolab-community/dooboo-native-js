@@ -1,0 +1,10 @@
+{
+  "presets": ["react-native", "flow"],
+  "env": {
+    "development": {
+      "plugins": [
+        "transform-decorators-legacy"
+      ]
+    }
+  }
+}
