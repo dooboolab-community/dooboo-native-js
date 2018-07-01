@@ -16,14 +16,18 @@ import appStore from '../../stores/appStore';
 import { getString } from '../../../STRINGS';
 import { observer } from 'mobx-react';
 
+type Props = {
+  navigation: any;
+};
+type State = {
+  cnt: number;
+}
+
 @observer
-export default class App extends Component<any, any> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cnt: 0,
-    };
-  }
+export default class App extends Component<Props, State> {
+  state = {
+    cnt: 0,
+  };
 
   componentDidMount() {
     // setTimeout(() => {

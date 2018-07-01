@@ -54,7 +54,6 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowFixedInNextDeploy
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
 
 ; mobx setup
-unsafe.enable_getters_and_setters=true
 esproposal.decorators=ignore
 
 [version]
