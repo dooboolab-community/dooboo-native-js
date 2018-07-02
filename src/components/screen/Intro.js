@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import {
   Platform,
@@ -71,20 +72,20 @@ const styles: any = StyleSheet.create({
   },
 });
 
-interface IState {
+type Props = {
+  store: User;
+};
+type State = {
   isLoggingIn: boolean;
 }
 
 @inject('store') @observer
-class Page extends Component<any, IState> {
+class Page extends Component<Props, State> {
   timer: any;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoggingIn: false,
-    };
-  }
+  state = {
+    isLoggingIn: false,
+  };
 
   componentWillUnmount() {
     if (this.timer) {

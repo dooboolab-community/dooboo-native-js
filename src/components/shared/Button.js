@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import {
   ActivityIndicator,
@@ -7,11 +8,15 @@ import {
   Text,
   View,
 } from 'react-native';
-// import NativeButton from 'apsl-react-native-button';
+import type {
+  ____ViewStyleProp_Internal as ViewStyle,
+  ____TextStyleProp_Internal as TextStyle,
+  ____ImageStyleProp_Internal as ImageStyle,
+} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 import { ratio, colors } from '../../utils/Styles';
 
-const styles: StyleSheet.style = StyleSheet.create({
+const styles = StyleSheet.create({
   btn: {
     backgroundColor: 'transparent',
     alignSelf: 'center',
@@ -48,21 +53,26 @@ const styles: StyleSheet.style = StyleSheet.create({
   },
 });
 
-interface ItemProps {
+type Props = {
   isLoading?: boolean;
   isDisabled?: boolean;
   onPress?: () => void;
-  style?: any;
-  disabledStyle?: any;
-  textStyle?: any;
+  style?: ViewStyle;
+  disabledStyle?: ViewStyle;
+  textStyle?: TextStyle;
   imgLeftSrc?: any;
-  imgLeftStyle?: any;
+  imgLeftStyle?: ImageStyle;
   indicatorColor?: string;
   activeOpacity?: number;
+  children?: any;
 }
 
-class Button extends Component<ItemProps, any> {
-  static defaultProps: ItemProps = {
+type State = {
+
+}
+
+class Button extends Component<Props, State> {
+  static defaultProps: Props = {
     isLoading: false,
     isDisabled: false,
     style: styles.btn,

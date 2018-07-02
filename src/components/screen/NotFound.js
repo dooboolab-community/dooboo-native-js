@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import {
   Platform,
@@ -19,7 +20,7 @@ import {
   IC_MASK,
 } from '../../utils/Icons';
 
-const styles: StyleSheet.style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'transparent',
@@ -28,7 +29,13 @@ const styles: StyleSheet.style = StyleSheet.create({
   },
 });
 
-class Page extends Component<any, any> {
+type Props = {
+}
+
+type State = {
+}
+
+class Page extends Component<Props, State> {
   render() {
     return (
       <View style={styles.container}>
