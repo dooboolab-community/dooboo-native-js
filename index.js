@@ -1,6 +1,5 @@
-import { AppRegistry } from 'react-native';
+import { AppRegistry, YellowBox } from 'react-native';
 import App from './src/App';
-import { YellowBox } from 'react-native';
 
 YellowBox.ignoreWarnings([
   // 'Warning: componentWillMount is deprecated',
@@ -10,4 +9,4 @@ YellowBox.ignoreWarnings([
   'Module RCTImageLoader'
 ]);
 
-AppRegistry.registerComponent('ReactNativeJs', () => App);
+AppRegistry.registerComponent('dooboo', () => App);

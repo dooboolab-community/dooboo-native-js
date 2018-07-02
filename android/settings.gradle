@@ -1,4 +1,4 @@
-rootProject.name = 'ReactNativeJs'
+rootProject.name = 'dooboo'
 include ':react-native-localization'
 project(':react-native-localization').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-localization/android')
 

@@ -98,7 +98,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.reactnativejs"
+        applicationId "com.dooboo"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1

@@ -1,4 +1,4 @@
-package com.reactnativejs;
+package com.dooboo;
 
 import android.app.Application;
 
