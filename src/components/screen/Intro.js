@@ -31,44 +31,44 @@ const styles: any = StyleSheet.create({
     alignItems: 'center',
   },
   titleTxt: {
-    marginTop: 140 * ratio,
+    marginTop: 100,
     color: 'white',
-    fontSize: 28 * ratio,
+    fontSize: 28,
+  },
+  txtLogin: {
+    fontSize: 14,
+    color: 'white',
+  },
+  imgBtn: {
+    width: 24,
+    height: 24,
+    position: 'absolute',
+    left: 16,
+  },
+  viewUser: {
+    marginTop: 80,
+    alignItems: 'center',
+  },
+  txtUser: {
+    fontSize: 16,
+    color: '#eee',
+    lineHeight: 48,
   },
   btnBottomWrapper: {
     position: 'absolute',
-    bottom: 16 * ratio,
+    bottom: 40,
   },
   btnLogin: {
     backgroundColor: 'transparent',
     alignSelf: 'center',
-    borderRadius: 4 * ratio,
-    borderWidth: 2 * ratio,
-    width: 320 * ratio,
-    height: 52 * ratio,
+    borderRadius: 4,
+    borderWidth: 2,
+    width: 320,
+    height: 52,
     borderColor: 'white',
 
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  txtLogin: {
-    fontSize: 14 * ratio,
-    color: 'white',
-  },
-  imgBtn: {
-    width: 24 * ratio,
-    height: 24 * ratio,
-    position: 'absolute',
-    left: 16 * ratio,
-  },
-  viewUser: {
-    marginTop: 40 * ratio,
-    alignItems: 'center',
-  },
-  txtUser: {
-    fontSize: 16 * ratio,
-    color: '#eee',
-    lineHeight: 48,
   },
 });
 
