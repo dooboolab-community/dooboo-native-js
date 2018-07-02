@@ -12,8 +12,9 @@
     "ios:iphone7+": "node node_modules/react-native/local-cli/cli.js run-ios  --simulator='iPhone 7 Plus'",
     "lint": "eslint -c .eslintrc.js './src/**/*.js'",
     "test": "jest -u",
+    "flow": "flow",
     "build": "babel src/ -d lib/",
-    "prepublish": "yarn run build"
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "mobx": "^5.0.3",
