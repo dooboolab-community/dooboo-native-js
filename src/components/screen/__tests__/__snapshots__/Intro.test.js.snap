@@ -96,8 +96,8 @@ exports[`Intro renders without crashing 1`] = `
     style={
       Object {
         "color": "white",
-        "fontSize": 58.33333333333333,
-        "marginTop": 291.66666666666663,
+        "fontSize": 28,
+        "marginTop": 100,
       }
     }
   >
@@ -107,7 +107,7 @@ exports[`Intro renders without crashing 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "marginTop": 83.33333333333331,
+        "marginTop": 80,
       }
     }
   >
@@ -118,7 +118,7 @@ exports[`Intro renders without crashing 1`] = `
       style={
         Object {
           "color": "#eee",
-          "fontSize": 33.33333333333333,
+          "fontSize": 16,
           "lineHeight": 48,
         }
       }
@@ -130,7 +130,7 @@ exports[`Intro renders without crashing 1`] = `
       style={
         Object {
           "color": "#eee",
-          "fontSize": 33.33333333333333,
+          "fontSize": 16,
           "lineHeight": 48,
         }
       }
@@ -142,7 +142,7 @@ exports[`Intro renders without crashing 1`] = `
       style={
         Object {
           "color": "#eee",
-          "fontSize": 33.33333333333333,
+          "fontSize": 16,
           "lineHeight": 48,
         }
       }
@@ -151,7 +151,7 @@ exports[`Intro renders without crashing 1`] = `
   <View
     style={
       Object {
-        "bottom": 33.33333333333333,
+        "bottom": 40,
         "position": "absolute",
       }
     }
@@ -178,11 +178,11 @@ exports[`Intro renders without crashing 1`] = `
             "alignSelf": "center",
             "backgroundColor": "transparent",
             "borderColor": "white",
-            "borderRadius": 8.333333333333332,
-            "borderWidth": 4.166666666666666,
-            "height": 108.33333333333331,
+            "borderRadius": 4,
+            "borderWidth": 2,
+            "height": 52,
             "justifyContent": "center",
-            "width": 666.6666666666665,
+            "width": 320,
           }
         }
       >
@@ -194,10 +194,10 @@ exports[`Intro renders without crashing 1`] = `
           }
           style={
             Object {
-              "height": 49.99999999999999,
-              "left": 33.33333333333333,
+              "height": 24,
+              "left": 16,
               "position": "absolute",
-              "width": 49.99999999999999,
+              "width": 24,
             }
           }
         />
@@ -208,7 +208,7 @@ exports[`Intro renders without crashing 1`] = `
           style={
             Object {
               "color": "white",
-              "fontSize": 29.166666666666664,
+              "fontSize": 14,
             }
           }
         >

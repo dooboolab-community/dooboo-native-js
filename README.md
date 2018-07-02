@@ -69,17 +69,16 @@ Testing is also just a command away:
 npm test
 > jest -u
 
- PASS  lib/components/shared/__tests__/Button.test.js
+ PASS  src/components/screen/__tests__/NotFound.test.js
   ● Console
 
-    console.log lib/utils/Styles.js:1
+    console.log src/utils/Styles.js:6
       calRatio: 8.995502248875562
-    console.log lib/utils/Styles.js:1
+    console.log src/utils/Styles.js:20
       calRatio: 83.33333333333333
-    console.log lib/utils/Styles.js:1
+    console.log src/utils/Styles.js:25
       ratio: 2.083333333333333
 
- › 4 snapshots written.
  PASS  lib/components/screen/__tests__/NotFound.test.js
   ● Console
 
@@ -91,19 +90,8 @@ npm test
       ratio: 2.083333333333333
 
  › 2 snapshots written.
- PASS  src/components/screen/__tests__/NotFound.test.js
-  ● Console
-
-    console.log src/utils/Styles.js:6
-      calRatio: 8.995502248875562
-    console.log src/utils/Styles.js:20
-      calRatio: 83.33333333333333
-    console.log src/utils/Styles.js:25
-      ratio: 2.083333333333333
-
  PASS  lib/components/screen/__tests__/Home.test.js
- › 2 snapshots updated.
- PASS  src/components/screen/__tests__/Home.test.js
+ › 2 snapshots written.
  PASS  src/components/shared/__tests__/Button.test.js
   ● Console
 
@@ -114,15 +102,39 @@ npm test
     console.log src/utils/Styles.js:25
       ratio: 2.083333333333333
 
+ › 4 snapshots updated.
+ PASS  lib/components/shared/__tests__/Button.test.js
+  ● Console
+
+    console.log lib/utils/Styles.js:1
+      calRatio: 8.995502248875562
+    console.log lib/utils/Styles.js:1
+      calRatio: 83.33333333333333
+    console.log lib/utils/Styles.js:1
+      ratio: 2.083333333333333
+
+ › 4 snapshots written.
+ PASS  src/components/screen/__tests__/Intro.test.js
+  ● Console
+
+    console.log src/utils/Styles.js:6
+      calRatio: 8.995502248875562
+    console.log src/utils/Styles.js:20
+      calRatio: 83.33333333333333
+    console.log src/utils/Styles.js:25
+      ratio: 2.083333333333333
+
+ › 1 snapshot updated.
 
 Snapshot Summary
- › 6 snapshots written from 2 test suites.
- › 2 snapshots updated from 1 test suite.
+ › 8 snapshots written from 3 test suites.
+ › 5 snapshots updated from 2 test suites.
 
 Test Suites: 6 passed, 6 total
 Tests:       14 passed, 14 total
-Snapshots:   2 updated, 6 written, 8 passed, 16 total
-Time:        2.322s
+Snapshots:   5 updated, 8 written, 3 passed, 16 total
+Time:        5.251s
+Ran all test suites.
 ```
 
 # Writing tests with Jest

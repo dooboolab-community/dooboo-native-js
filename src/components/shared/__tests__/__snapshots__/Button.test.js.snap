@@ -11,11 +11,11 @@ exports[`Button component test renders as expected 1`] = `
         "alignSelf": "center",
         "backgroundColor": "transparent",
         "borderColor": "white",
-        "borderRadius": 8.333333333333332,
-        "borderWidth": 4.166666666666666,
-        "height": 108.33333333333331,
+        "borderRadius": 4,
+        "borderWidth": 2,
+        "height": 52,
         "justifyContent": "center",
-        "width": 666.6666666666665,
+        "width": 320,
       }
     }
   >
@@ -26,7 +26,7 @@ exports[`Button component test renders as expected 1`] = `
       style={
         Object {
           "color": "white",
-          "fontSize": 29.166666666666664,
+          "fontSize": 14,
         }
       }
     />
@@ -45,11 +45,11 @@ exports[`Button component test renders as expected 2`] = `
         "alignSelf": "center",
         "backgroundColor": "transparent",
         "borderColor": "white",
-        "borderRadius": 8.333333333333332,
-        "borderWidth": 4.166666666666666,
-        "height": 108.33333333333331,
+        "borderRadius": 4,
+        "borderWidth": 2,
+        "height": 52,
         "justifyContent": "center",
-        "width": 666.6666666666665,
+        "width": 320,
       }
     }
   >
@@ -60,7 +60,7 @@ exports[`Button component test renders as expected 2`] = `
       style={
         Object {
           "color": "white",
-          "fontSize": 29.166666666666664,
+          "fontSize": 14,
         }
       }
     />
@@ -80,11 +80,11 @@ exports[`Button component test simulate onPress 1`] = `
         "alignSelf": "center",
         "backgroundColor": "transparent",
         "borderColor": "white",
-        "borderRadius": 8.333333333333332,
-        "borderWidth": 4.166666666666666,
-        "height": 108.33333333333331,
+        "borderRadius": 4,
+        "borderWidth": 2,
+        "height": 52,
         "justifyContent": "center",
-        "width": 666.6666666666665,
+        "width": 320,
       }
     }
   >
@@ -95,7 +95,7 @@ exports[`Button component test simulate onPress 1`] = `
       style={
         Object {
           "color": "white",
-          "fontSize": 29.166666666666664,
+          "fontSize": 14,
         }
       }
     />
@@ -126,11 +126,11 @@ exports[`Button renders without crashing 1`] = `
         "alignSelf": "center",
         "backgroundColor": "transparent",
         "borderColor": "white",
-        "borderRadius": 8.333333333333332,
-        "borderWidth": 4.166666666666666,
-        "height": 108.33333333333331,
+        "borderRadius": 4,
+        "borderWidth": 2,
+        "height": 52,
         "justifyContent": "center",
-        "width": 666.6666666666665,
+        "width": 320,
       }
     }
   >
@@ -141,7 +141,7 @@ exports[`Button renders without crashing 1`] = `
       style={
         Object {
           "color": "white",
-          "fontSize": 29.166666666666664,
+          "fontSize": 14,
         }
       }
     />
