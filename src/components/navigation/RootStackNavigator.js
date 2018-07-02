@@ -5,20 +5,20 @@ import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/Sta
 
 import appStore from '../../stores/appStore';
 import NavigationService from './NavigationService';
-import HomeScreen from '../screen/Home';
+import IntroScreen from '../screen/Intro';
 import NotFoundScreen from '../screen/NotFound';
 
 @observer
 class RootNavigator extends React.Component {
   state = {
-    initScreen: 'Home',
+    initScreen: 'Intro',
   };
 
   render() {
     const routeConfig = {
-      Home: {
-        screen: HomeScreen,
-        path: 'Home',
+      Intro: {
+        screen: IntroScreen,
+        path: 'Intro',
       },
       NotFound: {
         screen: NotFoundScreen,
