@@ -17,6 +17,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
+    "jsc-android": "^224109.0.0",
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.3",
     "react": "16.3.1",
