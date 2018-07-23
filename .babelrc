@@ -1,5 +1,5 @@
 {
-  "presets": ["react-native", "flow"],
+  "presets": ["react-native", "@babel/flow"],
   "plugins": [
     [
       "@babel/plugin-proposal-decorators",

@@ -11,13 +11,9 @@ exports[`NotFound component test renders as expected 1`] = `
     }
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-  >
+  <Component>
     Not Found
-  </Text>
+  </Component>
 </Component>
 `;
 
@@ -32,11 +28,7 @@ exports[`NotFound renders without crashing 1`] = `
     }
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-  >
+  <Text>
     Not Found
   </Text>
 </View>
