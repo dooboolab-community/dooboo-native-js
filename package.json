@@ -14,8 +14,7 @@
     "lint": "eslint -c .eslintrc.js './src/**/*.js'",
     "test": "jest -u",
     "flow": "flow",
-    "build": "babel src/ -d lib/",
-    "prepublish": "npm run build"
+    "build": "babel src/ -d lib/"
   },
   "dependencies": {
     "jsc-android": "^224109.0.0",
