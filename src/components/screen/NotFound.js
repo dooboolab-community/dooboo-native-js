@@ -24,8 +24,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'transparent',
-    flexDirection: 'column',
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
@@ -36,10 +37,14 @@ type State = {
 }
 
 class Page extends Component<Props, State> {
+  static navigationOptions = {
+    title: 'NotFound',
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>Not Found</Text>
+        <Text>Page Not Found</Text>
       </View>
     );
   }

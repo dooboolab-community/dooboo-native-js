@@ -1,4 +1,3 @@
-import { getStatusBarHeight } from 'react-native-status-bar-height';
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View, Text, Dimensions, AsyncStorage, Alert } from 'react-native';
 import SwitchNavigator from './components/navigation/SwitchNavigator';
@@ -21,7 +20,6 @@ class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === 'ios' ? getStatusBarHeight(false) : 0, // false to get height of android too.
     flexDirection: 'column',
     backgroundColor: 'transparent',
   },

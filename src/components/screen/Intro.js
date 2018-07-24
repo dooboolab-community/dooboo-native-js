@@ -32,8 +32,8 @@ const styles: any = StyleSheet.create({
   },
   titleTxt: {
     marginTop: 100,
-    color: 'white',
-    fontSize: 28,
+    color: colors.dusk,
+    fontSize: 24,
   },
   txtLogin: {
     fontSize: 14,
@@ -46,12 +46,12 @@ const styles: any = StyleSheet.create({
     left: 16,
   },
   viewUser: {
-    marginTop: 80,
+    marginTop: 60,
     alignItems: 'center',
   },
   txtUser: {
     fontSize: 16,
-    color: '#eee',
+    color: colors.dusk,
     lineHeight: 48,
   },
   btnBottomWrapper: {
@@ -59,13 +59,21 @@ const styles: any = StyleSheet.create({
     bottom: 40,
   },
   btnLogin: {
-    backgroundColor: 'transparent',
+    backgroundColor: colors.dodgerBlue,
     alignSelf: 'center',
     borderRadius: 4,
-    borderWidth: 2,
     width: 320,
     height: 52,
-    borderColor: 'white',
+
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  btnNavigate: {
+    backgroundColor: 'white',
+    alignSelf: 'center',
+    borderRadius: 4,
+    width: 320,
+    height: 52,
 
     alignItems: 'center',
     justifyContent: 'center',
@@ -111,6 +119,18 @@ class Page extends Component<Props, State> {
             imgLeftSrc={IC_MASK}
             imgLeftStyle={styles.imgBtn}
           >{getString('LOGIN')}</Button>
+          <Button
+            onPress={() => this.props.navigation.navigate('NotFound') }
+            style={[
+              styles.btnNavigate,
+              {
+                marginTop: 15,
+              },
+            ]}
+            textStyle={{
+              color: colors.dodgerBlue,
+            }}
+          >Navigate</Button>
         </View>
       </View>
     );
