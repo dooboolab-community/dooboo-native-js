@@ -4,50 +4,43 @@ import { observer } from 'mobx-react/native';
 import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
 
 import appStore from '../../stores/appStore';
-import NavigationService from './NavigationService';
 import IntroScreen from '../screen/Intro';
 import NotFoundScreen from '../screen/NotFound';
 
+const routeConfig = {
+  Intro: {
+    screen: IntroScreen,
+    path: 'Intro',
+  },
+  NotFound: {
+    screen: NotFoundScreen,
+    path: 'NotFound',
+  },
+};
+
+const navigatorConfig = {
+  initialRouteName: 'Intro',
+  header: null,
+  headerMode: 'none',
+  gesturesEnabled: true,
+  statusBarStyle: 'light-content',
+  transitionConfig: () => ({ screenInterpolator:
+    appStore.rootNavigatorActionHorizontal
+      ? StackViewStyleInterpolator.forHorizontal
+      : StackViewStyleInterpolator.forVertical,
+  }),
+};
+
+const RootStackNavigator = createStackNavigator(routeConfig, navigatorConfig);
+
 @observer
 class RootNavigator extends React.Component {
-  state = {
-    initScreen: 'Intro',
-  };
+  static router = RootStackNavigator.router;
 
   render() {
-    const routeConfig = {
-      Intro: {
-        screen: IntroScreen,
-        path: 'Intro',
-      },
-      NotFound: {
-        screen: NotFoundScreen,
-        path: 'NotFound',
-      },
-    };
-
-    const navigatorConfig = {
-      initialRouteName: this.state.initScreen,
-      header: null,
-      headerMode: 'none',
-      gesturesEnabled: true,
-      statusBarStyle: 'light-content',
-      transitionConfig: () => ({ screenInterpolator:
-        appStore.rootNavigatorActionHorizontal
-          ? StackViewStyleInterpolator.forHorizontal
-          : StackViewStyleInterpolator.forVertical,
-      }),
-    };
-
-    const RootStackNavigator = createStackNavigator(routeConfig, navigatorConfig);
-
     return (
       <RootStackNavigator
-        ref={(v) => {
-          if (v) {
-            NavigationService.setTopLevelNavigator(v);
-          }
-        }}
+        navigation={this.props.navigation}
       />
     );
   }
