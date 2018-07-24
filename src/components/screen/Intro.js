@@ -16,6 +16,7 @@ import {
 import { observable } from 'mobx';
 import { observer } from 'mobx-react';
 import { inject } from 'mobx-react/native';
+import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 
 import { ratio, colors } from '../../utils/Styles';
 import { IC_MASK } from '../../utils/Icons';
@@ -81,7 +82,8 @@ const styles: any = StyleSheet.create({
 });
 
 type Props = {
-  store: User;
+  store: any;
+  navigation: NavigationScreenProp<NavigationStateRoute>;
 };
 type State = {
   isLoggingIn: boolean;
