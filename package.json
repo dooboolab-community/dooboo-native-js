@@ -22,7 +22,7 @@
     "mobx-react": "^5.2.3",
     "react": "16.4.1",
     "react-native": "0.56.0",
-    "react-native-localization": "git+https://github.com/dooboolab/ReactNativeLocalization.git",
+    "react-native-localization": "^1.0.11",
     "react-native-modalbox": "^1.6.0",
     "react-native-status-bar-height": "^2.0.0",
     "react-navigation": "^2.9.1"
