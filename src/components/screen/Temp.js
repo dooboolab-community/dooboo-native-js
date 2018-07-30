@@ -38,13 +38,13 @@ type State = {
 
 class Page extends Component<Props, State> {
   static navigationOptions = {
-    title: 'NotFound',
+    title: 'Temp',
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>Page Not Found</Text>
+        <Text>Temporary Page</Text>
       </View>
     );
   }

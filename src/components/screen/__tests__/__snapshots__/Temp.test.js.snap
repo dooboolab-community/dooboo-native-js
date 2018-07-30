@@ -1,35 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NotFound component test renders as expected 1`] = `
+exports[`Temp component test renders as expected 1`] = `
 <Component
   style={
     Object {
       "alignItems": "center",
       "backgroundColor": "transparent",
       "flex": 1,
-      "flexDirection": "column",
+      "flexDirection": "row",
+      "justifyContent": "center",
     }
   }
 >
   <Component>
-    Not Found
+    Temporary Page
   </Component>
 </Component>
 `;
 
-exports[`NotFound renders without crashing 1`] = `
+exports[`Temp renders without crashing 1`] = `
 <View
   style={
     Object {
       "alignItems": "center",
       "backgroundColor": "transparent",
       "flex": 1,
-      "flexDirection": "column",
+      "flexDirection": "row",
+      "justifyContent": "center",
     }
   }
 >
   <Text>
-    Not Found
+    Temporary Page
   </Text>
 </View>
 `;
