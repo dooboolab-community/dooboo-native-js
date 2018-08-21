@@ -1,4 +1,6 @@
 import { AppRegistry, YellowBox } from 'react-native';
+// if build release failed in android, try replace import statement with below.
+// import App from './lib/App';
 import App from './src/App';
 
 YellowBox.ignoreWarnings([

@@ -57,3 +57,14 @@ buck-out/
 
 # ignore
 lib
+
+# ios release bundle
+ios/assets/
+ios/main.jsbundle.meta
+ios/main.jsbundle.map
+
+# android release bundle
+android/drawable-*/
+android/main.jsbundle.meta
+android/main.jsbundle.map
+android/app/app-release.apk
