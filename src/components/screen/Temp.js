@@ -38,7 +38,10 @@ type State = {
 
 class Page extends Component<Props, State> {
   static navigationOptions = {
-    title: 'Temp',
+    headerTitle: <Text style={{
+      fontSize: 18,
+      color: 'white',
+    }}>Temp</Text>,
   };
 
   render() {
