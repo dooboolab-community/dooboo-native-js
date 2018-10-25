@@ -26,7 +26,6 @@
     "build:android": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.js --platform android --dev false --bundle-output ./android/main.jsbundle --assets-dest ./android --sourcemap-output ./android/main.jsbundle.map"
   },
   "dependencies": {
-    "jsc-android": "^225067.0.0",
     "mobx": "^5.5.2",
     "mobx-react": "^5.3.5",
     "react": "16.6.0",
@@ -37,6 +36,7 @@
     "react-navigation": "^2.18.1"
   },
   "devDependencies": {
+    "jsc-android": "^225067.0.0",
     "@babel/cli": "^7.1.2",
     "@babel/core": "7.1.2",
     "@babel/plugin-proposal-decorators": "7.1.2",
