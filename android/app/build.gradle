@@ -136,8 +136,18 @@ android {
     }
 }
 
+configurations.all {
+    resolutionStrategy {
+        eachDependency { DependencyResolveDetails details ->
+            if (details.requested.name == 'android-jsc') {
+                details.useTarget group: details.requested.group, name: 'android-jsc-intl', version: 'r225067'
+            }
+        }
+    }
+}
+
 dependencies {
-    compile project(':react-native-localization')
+    implementation project(':react-native-localization')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules
