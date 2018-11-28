@@ -40,7 +40,6 @@ class Page extends Component<Props, State> {
   static navigationOptions = {
     headerTitle: <Text style={{
       fontSize: 18,
-      color: 'white',
     }}>Temp</Text>,
   };
 
