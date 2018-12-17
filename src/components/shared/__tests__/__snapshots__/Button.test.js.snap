@@ -4,7 +4,7 @@ exports[`Button component test renders as expected 1`] = `
 <TouchableOpacity
   activeOpacity={0.5}
 >
-  <Component
+  <View
     style={
       Object {
         "alignItems": "center",
@@ -19,7 +19,7 @@ exports[`Button component test renders as expected 1`] = `
       }
     }
   >
-    <Component
+    <Text
       style={
         Object {
           "color": "white",
@@ -27,7 +27,7 @@ exports[`Button component test renders as expected 1`] = `
         }
       }
     />
-  </Component>
+  </View>
 </TouchableOpacity>
 `;
 
@@ -35,7 +35,7 @@ exports[`Button component test renders as expected 2`] = `
 <TouchableOpacity
   activeOpacity={0.5}
 >
-  <Component
+  <View
     style={
       Object {
         "alignItems": "center",
@@ -50,7 +50,7 @@ exports[`Button component test renders as expected 2`] = `
       }
     }
   >
-    <Component
+    <Text
       style={
         Object {
           "color": "white",
@@ -58,7 +58,7 @@ exports[`Button component test renders as expected 2`] = `
         }
       }
     />
-  </Component>
+  </View>
 </TouchableOpacity>
 `;
 
@@ -67,7 +67,7 @@ exports[`Button component test simulate onPress 1`] = `
   activeOpacity={0.5}
   onPress={[Function]}
 >
-  <Component
+  <View
     style={
       Object {
         "alignItems": "center",
@@ -82,7 +82,7 @@ exports[`Button component test simulate onPress 1`] = `
       }
     }
   >
-    <Component
+    <Text
       style={
         Object {
           "color": "white",
@@ -90,7 +90,7 @@ exports[`Button component test simulate onPress 1`] = `
         }
       }
     />
-  </Component>
+  </View>
 </TouchableOpacity>
 `;
 
