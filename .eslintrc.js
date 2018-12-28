@@ -18,7 +18,7 @@ module.exports = {
     }],
     "semi": [2, "always"],
     "arrow-parens": ["error", "always"],
-    "space-before-function-paren": ["error", "always"],
+    "space-before-function-paren": ["error", "never"],
     "standard/object-curly-even-spacing": 0,
     "no-new-object": "error",
     "no-array-constructor": "error",
