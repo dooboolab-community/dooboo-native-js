@@ -19,7 +19,7 @@
     "ios:release": "node node_modules/react-native/local-cli/cli.js run-ios --configuration Release",
     "ios:devices": "xcrun simctl list devices",
     "lint": "eslint -c .eslintrc.js './src/**/*.js'",
-    "test": "jest -u",
+    "test": "jest",
     "flow": "flow",
     "build": "babel src/ -d lib/",
     "build:ios": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.js --platform ios --dev false --bundle-output ./ios/main.jsbundle --assets-dest ./ios --sourcemap-output ./ios/main.jsbundle.map",
@@ -29,12 +29,12 @@
     "mobx": "^5.9.0",
     "mobx-react": "^5.4.3",
     "react": "16.6.3",
-    "react-native": "0.58.3",
+    "react-native": "0.58.4",
     "react-native-gesture-handler": "^1.0.15",
     "react-native-localization": "^2.0.3",
     "react-native-modalbox": "^1.7.1",
     "react-native-status-bar-height": "^2.2.0",
-    "react-navigation": "^3.1.4"
+    "react-navigation": "^3.1.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -45,9 +45,6 @@
     "@babel/preset-flow": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "24.1.0",
-    "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.9.1",
-    "enzyme-to-json": "^3.3.5",
     "eslint": "^5.13.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
@@ -60,33 +57,5 @@
     "metro-react-native-babel-preset": "^0.51.1",
     "react-dom": "^16.6.3",
     "react-test-renderer": "16.6.3"
-  },
-  "jest": {
-    "preset": "react-native",
-    "transformIgnorePatterns": [
-      "node_modules/(?!(.*-)?react-(.*-)?native(-.*)?)"
-    ],
-    "setupFiles": [
-      "./test/jestSetup.js"
-    ],
-    "globals": {
-      "window": {}
-    },
-    "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "json",
-      "ios.js",
-      "ios.jsx",
-      "android.js",
-      "android.jsx"
-    ],
-    "snapshotSerializers": [
-      "./node_modules/enzyme-to-json/serializer"
-    ]
   }
 }

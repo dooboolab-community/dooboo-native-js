@@ -89,13 +89,16 @@ type State = {
   isLoggingIn: boolean;
 }
 
-@inject('store') @observer
+// @inject('store') @observer
 class Page extends Component<Props, State> {
   timer: any;
 
-  state = {
-    isLoggingIn: false,
-  };
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      isLoggingIn: false,
+    };
+  }
 
   componentWillUnmount() {
     if (this.timer) {
