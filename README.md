@@ -3,7 +3,7 @@ DO NOT MODIFY OR CHANGE THE CODE BEFORE CONFIRMED BY `DOOBOOLAB`. THIS REPOSITOR
 
 # React Native JS Boilerplate
 [![codecov](https://codecov.io/gh/dooboolab/dooboo-native-js/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/dooboo-native-js)
-[![CircleCI](https://circleci.com/gh/dooboolab/talktalk-rn.svg?style=svg)](https://circleci.com/gh/dooboolab/dooboo-native-js)
+[![CircleCI](https://circleci.com/gh/dooboolab/dooboo-native-js.svg?style=svg)](https://circleci.com/gh/dooboolab/dooboo-native-js)
 
 > Specification
 * flow
