@@ -2,6 +2,8 @@
 DO NOT MODIFY OR CHANGE THE CODE BEFORE CONFIRMED BY `DOOBOOLAB`. THIS REPOSITORY IS USED IN `DOOBOO-CLI`.
 
 # React Native JS Boilerplate
+[![codecov](https://codecov.io/gh/dooboolab/dooboo-native-js/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/dooboo-native-js)
+
 > Specification
 * flow
 * react-navigation
