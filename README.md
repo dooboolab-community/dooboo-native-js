@@ -39,7 +39,6 @@ app/
 │  └─ utils
 │  └─ index.js
 ├─ test/
-├─ .babelrc
 ├─ .buckconfig
 ├─ .eslintignore
 ├─ .eslintrc.js
@@ -48,7 +47,9 @@ app/
 ├─ .gitignore
 ├─ .watchmanconfig
 ├─ app.json
+├─ babel.config.js
 ├─ index.js
+├─ jest.config.js
 ├─ package.json
 ├─ README.md
 └─ STRINGS.js
