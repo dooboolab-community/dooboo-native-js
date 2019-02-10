@@ -44,14 +44,15 @@ describe('Interaction', () => {
 
   it('Simulate onClick', () => {
     jest.useFakeTimers();
-    const spy = jest.spyOn(rendered.getInstance(), 'onLogin');
+
+    const spy = jest.spyOn(root.instance.wrappedInstance, 'onLogin');
     const buttons = root.findAllByType(Button);
-    root.instance.onLogin(); // == buttons[0].props.onPress();
+    root.instance.wrappedInstance.onLogin(); // == buttons[0].props.onPress();
     expect(setTimeout).toHaveBeenCalledTimes(1);
-    expect(root.instance.state.isLoggingIn).toEqual(true);
+    expect(root.instance.wrappedInstance._reactInternalFiber.memoizedState.isLoggingIn).toEqual(true);
 
     jest.runAllTimers();
-    expect(root.instance.state.isLoggingIn).toEqual(false);
+    expect(root.instance.wrappedInstance._reactInternalFiber.memoizedState.isLoggingIn).toEqual(false);
     expect(props.store.user.displayName).toEqual('dooboolab');
     expect(props.store.user.age).toEqual(30);
     expect(props.store.user.job).toEqual('developer');
