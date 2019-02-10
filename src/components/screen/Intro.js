@@ -89,7 +89,7 @@ type State = {
   isLoggingIn: boolean;
 }
 
-// @inject('store') @observer
+@inject('store') @observer
 class Page extends Component<Props, State> {
   timer: any;
 
