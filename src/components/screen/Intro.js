@@ -140,14 +140,14 @@ class Page extends Component<Props, State> {
                 <View style={styles.btnBottomWrapper}>
                   <Button
                     isLoading={this.state.isLoggingIn}
-                    onPress={() => this.onLogin(data)}
+                    onClick={() => this.onLogin(data)}
                     style={styles.btnLogin}
                     textStyle={styles.txtLogin}
                     imgLeftSrc={IC_MASK}
                     imgLeftStyle={styles.imgBtn}
                   >{getString('LOGIN')}</Button>
                   <Button
-                    onPress={() => this.props.navigation.navigate('Temp') }
+                    onClick={() => this.props.navigation.navigate('Temp') }
                     style={[
                       styles.btnNavigate,
                       {

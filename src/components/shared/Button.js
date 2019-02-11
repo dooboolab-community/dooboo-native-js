@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
 type Props = {
   isLoading?: boolean;
   isDisabled?: boolean;
-  onPress?: () => void;
+  onClick?: () => void;
   style?: ViewStyle;
   disabledStyle?: ViewStyle;
   textStyle?: TextStyle;
@@ -100,7 +100,7 @@ class Button extends Component<Props, State> {
     return (
       <TouchableOpacity
         activeOpacity={this.props.activeOpacity}
-        onPress={this.props.onPress}
+        onPress={this.props.onClick}
       >
         <View style={this.props.style}>
           {
