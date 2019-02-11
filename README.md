@@ -12,7 +12,7 @@ DO NOT MODIFY OR CHANGE THE CODE BEFORE CONFIRMED BY `DOOBOOLAB`. THIS REPOSITOR
 * context-api
 * jest with react-test-renderer
 
-> Recently, we removed `mobx` from `js` boilerplate. We didn't however make changes in `ts` boilerplate. The reason to remove `mobx` is because we thought that this isn't suitable with what `react` brings up as a design pattern. Today, they are more supportive in `functional-programming` rather than `OOP` which has been powered by `react-hook` in `16.8`. Unlike, `js`, `typescript` users are more familiar with `OOP` programming because `typescript` has mimicked lots of feature is `JAVA` or `C++`. Hope you enjoy what we've brought up today as `react naitve javascript boilerplate`.
+> Recently, we removed `mobx` from `js` boilerplate. We didn't, however, make changes in `ts` boilerplate. The reason to remove `mobx` is because we thought that this isn't suitable with what `react` brings up as a design pattern. Today, they are more supportive in `functional-programming` rather than `OOP` which has been powered by `react-hook` in `16.8`. Unlike, `js`, `typescript` users are more familiar with `OOP` programming because `typescript` has mimicked lots of feature is `JAVA` or `C++`. We will also make changes to component later with `fp` style when `react@16.8` has landed in `react-native`. Hope you enjoy what we've brought up today as `react native javascript boilerplate`.
 
 # Gain points
 ```
