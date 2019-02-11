@@ -1,19 +1,26 @@
 module.exports = {
-  'preset': 'react-native',
-  'transformIgnorePatterns': [
+  preset: 'react-native',
+  transformIgnorePatterns: [
     'node_modules/(?!(.*-)?react-(.*-)?native(-.*)?)'
   ],
-  'setupFiles': [
+  coverageDirectory: './coverage/',
+  coveragePathIgnorePatterns: [
+    '/node_modules/',
+    '/test/',
+    'src/utils/Styles',
+    'src/utils/Icons',
+  ],
+  setupFiles: [
     './test/jestSetup.js'
   ],
-  'globals': {
-    'window': {},
+  globals: {
+    window: {},
   },
-  'transform': {
+  transform: {
     '^.+\\.js$': '<rootDir>/node_modules/react-native/jest/preprocessor.js'
   },
-  'testRegex': '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
-  'moduleFileExtensions': [
+  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
+  moduleFileExtensions: [
     'js',
     'jsx',
     'json',

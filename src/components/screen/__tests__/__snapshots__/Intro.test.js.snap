@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Intro page DOM rendering test component and snapshot matches 1`] = `
+exports[`[Intro] screen rendering test should render outer component and snapshot matches 1`] = `
 <View
   style={
     Object {
@@ -26,7 +26,7 @@ exports[`Intro page DOM rendering test component and snapshot matches 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "marginTop": 60,
+        "marginTop": 80,
       }
     }
   >
@@ -38,7 +38,9 @@ exports[`Intro page DOM rendering test component and snapshot matches 1`] = `
           "lineHeight": 48,
         }
       }
-    />
+    >
+      
+    </Text>
     <Text
       style={
         Object {
@@ -47,7 +49,9 @@ exports[`Intro page DOM rendering test component and snapshot matches 1`] = `
           "lineHeight": 48,
         }
       }
-    />
+    >
+      
+    </Text>
     <Text
       style={
         Object {
@@ -56,7 +60,9 @@ exports[`Intro page DOM rendering test component and snapshot matches 1`] = `
           "lineHeight": 48,
         }
       }
-    />
+    >
+      
+    </Text>
   </View>
   <View
     style={
@@ -167,23 +173,4 @@ exports[`Intro page DOM rendering test component and snapshot matches 1`] = `
     </View>
   </View>
 </View>
-`;
-
-exports[`Intro page DOM rendering test shallow renders match snapshot 1`] = `
-<Page
-  navigation={
-    Object {
-      "navigate": [MockFunction],
-    }
-  }
-  store={
-    ObservableListStore {
-      "user": User {
-        "age": undefined,
-        "displayName": undefined,
-        "job": undefined,
-      },
-    }
-  }
-/>
 `;

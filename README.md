@@ -9,14 +9,16 @@ DO NOT MODIFY OR CHANGE THE CODE BEFORE CONFIRMED BY `DOOBOOLAB`. THIS REPOSITOR
 * flow
 * react-navigation
 * localization
-* mobx
-* jest configured with decorator and injector from mobx
+* context-api
+* jest with react-test-renderer
+
+> Recently, we removed `mobx` from `js` boilerplate. We didn't however make changes in `ts` boilerplate. The reason to remove `mobx` is because we thought that this isn't suitable with what `react` brings up as a design pattern. Today, they are more supportive in `functional-programming` rather than `OOP` which has been powered by `react-hook` in `16.8`. Unlike, `js`, `typescript` users are more familiar with `OOP` programming because `typescript` has mimicked lots of feature is `JAVA` or `C++`. Hope you enjoy what we've brought up today as `react naitve javascript boilerplate`.
 
 # Gain points
 ```
-1. Sample of mobx and data modeling.
-2. Able to learn how to structure react native app with mobx and jest and flow.
-3. Test type with flow with `npm run build` command.
+1. Sample of context-api.
+2. Able to learn how to structure react native app with flow, context-api and jest.
+3. Test `linting`, `typing`, `jest` with `npm run build` command.
 4. Learn how to localize your project.
 ```
 
@@ -37,8 +39,10 @@ app/
 ├─ src/
 │  └─ apis
 │  └─ components
-│  └─ models
-│  └─ stores
+│     └─ navigations
+│     └─ screen
+│     └─ shared
+│  └─ contexts
 │  └─ utils
 │  └─ index.js
 ├─ test/
@@ -66,13 +70,6 @@ npm run start
 
 This runs the `start` script specified in our `package.json`, and will spawn off a server which reloads the page as we save our files.
 Typically the server runs at `http://localhost:8080`, but should be automatically opened for you.
-
-## Troubleshoot
-* Facing `Can't find variable Symbol` error in `window` or `ubuntu`.
-  ```
-  npm install --save mobx@3.6.2
-  npm install --save mobx-react@4.4.3
-  ```
 
 ## Testing the project
 Testing is also just a command away:

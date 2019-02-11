@@ -13,18 +13,37 @@ import {
   FlatList,
   InteractionManager,
 } from 'react-native';
-import { observable } from 'mobx';
-import { observer } from 'mobx-react';
-import { inject } from 'mobx-react/native';
 import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 
+import type {
+  ____ViewStyleProp_Internal as ViewStyle,
+  ____TextStyleProp_Internal as TextStyle,
+  ____ImageStyleProp_Internal as ImageStyle,
+} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
+import type {
+  User,
+} from '../../types';
+import type { State as AppState } from '../../providers/AppProvider';
+
+import { AppConsumer } from '../../providers/AppProvider';
 import { ratio, colors } from '../../utils/Styles';
 import { IC_MASK } from '../../utils/Icons';
-import User from '../../models/User';
 import { getString } from '../../../STRINGS';
 import Button from '../shared/Button';
 
-const styles: any = StyleSheet.create({
+type Style = {
+  container: ViewStyle,
+  titleTxt: TextStyle,
+  txtLogin: ViewStyle,
+  imgBtn: ImageStyle,
+  viewUser: ViewStyle,
+  txtUser: TextStyle,
+  btnBottomWrapper: ViewStyle,
+  btnLogin: ViewStyle,
+  btnNavigate: ViewStyle,
+};
+
+const styles: Style = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
@@ -47,7 +66,7 @@ const styles: any = StyleSheet.create({
     left: 16,
   },
   viewUser: {
-    marginTop: 60,
+    marginTop: 80,
     alignItems: 'center',
   },
   txtUser: {
@@ -89,7 +108,6 @@ type State = {
   isLoggingIn: boolean;
 }
 
-@inject('store') @observer
 class Page extends Component<Props, State> {
   timer: any;
 
@@ -108,46 +126,57 @@ class Page extends Component<Props, State> {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.titleTxt}>DOOBOO NATIVE</Text>
-        <View style={styles.viewUser}>
-          <Text style={styles.txtUser}>{this.props.store.user.displayName}</Text>
-          <Text style={styles.txtUser}>{this.props.store.user.age}</Text>
-          <Text style={styles.txtUser}>{this.props.store.user.job}</Text>
-        </View>
-        <View style={styles.btnBottomWrapper}>
-          <Button
-            isLoading={this.state.isLoggingIn}
-            onPress={this.onLogin}
-            style={styles.btnLogin}
-            textStyle={styles.txtLogin}
-            imgLeftSrc={IC_MASK}
-            imgLeftStyle={styles.imgBtn}
-          >{getString('LOGIN')}</Button>
-          <Button
-            onPress={() => this.props.navigation.navigate('Temp') }
-            style={[
-              styles.btnNavigate,
-              {
-                marginTop: 15,
-              },
-            ]}
-            textStyle={{
-              color: colors.dodgerBlue,
-            }}
-          >Navigate</Button>
-        </View>
-      </View>
+      <AppConsumer>
+        {
+          (data) => {
+            return (
+              <View style={styles.container}>
+                <Text style={styles.titleTxt}>DOOBOO NATIVE</Text>
+                <View style={styles.viewUser}>
+                  <Text style={styles.txtUser}>{data.state.user.displayName}</Text>
+                  <Text style={styles.txtUser}>{data.state.user.age ? data.state.user.age : ''}</Text>
+                  <Text style={styles.txtUser}>{data.state.user.job}</Text>
+                </View>
+                <View style={styles.btnBottomWrapper}>
+                  <Button
+                    isLoading={this.state.isLoggingIn}
+                    onPress={() => this.onLogin(data)}
+                    style={styles.btnLogin}
+                    textStyle={styles.txtLogin}
+                    imgLeftSrc={IC_MASK}
+                    imgLeftStyle={styles.imgBtn}
+                  >{getString('LOGIN')}</Button>
+                  <Button
+                    onPress={() => this.props.navigation.navigate('Temp') }
+                    style={[
+                      styles.btnNavigate,
+                      {
+                        marginTop: 15,
+                      },
+                    ]}
+                    textStyle={{
+                      color: colors.dodgerBlue,
+                    }}
+                  >Navigate</Button>
+                </View>
+              </View>
+            );
+          }
+        }
+      </AppConsumer>
     );
   }
 
-  onLogin = () => {
-    this.props.store.user = new User();
+  onLogin = (data: AppState) => {
+    data.actions.resetUser();
     this.setState({ isLoggingIn: true }, () => {
       this.timer = setTimeout(() => {
-        this.props.store.user.displayName = 'dooboolab';
-        this.props.store.user.age = 30;
-        this.props.store.user.job = 'developer';
+        const user: User = {
+          displayName: 'dooboolab',
+          age: 30,
+          job: 'developer',
+        };
+        data.actions.setUser(user);
         this.setState({ isLoggingIn: false });
       }, 1000);
     });
