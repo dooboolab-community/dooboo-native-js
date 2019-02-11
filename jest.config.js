@@ -10,6 +10,7 @@ module.exports = {
     'src/utils/Styles',
     'src/utils/Icons',
   ],
+  collectCoverage: true,
   setupFiles: [
     './test/jestSetup.js'
   ],
@@ -28,5 +29,9 @@ module.exports = {
     'ios.jsx',
     'android.js',
     'android.jsx'
-  ]
+  ],
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '/src/components/screen/__tests__/testHelpers.js',
+  ],
 };

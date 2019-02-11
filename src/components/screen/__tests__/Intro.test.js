@@ -6,19 +6,23 @@ import Button from '../../shared/Button';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
+import { AppContext } from './testHelpers';
 
-const component = (
-  <AppProvider>
-    <Intro />
-  </AppProvider>
-);
-
-let props = {
+const props = {
   navigation: {
     navigate: jest.fn(),
   },
+  history: {
+    push: jest.fn(),
+  },
+  ...AppContext,
 };
 
+const component = (
+  <AppProvider>
+    <Intro {...props}/>
+  </AppProvider>
+);
 
 // test for the container page in dom
 describe('[Intro] screen rendering test', () => {
@@ -33,29 +37,39 @@ describe('[Intro] screen rendering test', () => {
 describe('[Intro] Interaction', () => {
   let rendered: TestRenderer.ReactTestRenderer;
   let root: TestRenderer.ReactTestRenderer.root;
+  let instance;
+  let children;
 
-  beforeAll(() => {
+  beforeEach(() => {
     rendered = renderer.create(component);
     root = rendered.root;
+    instance = rendered.getInstance();
+    children = instance.props.children;
   });
 
-  it('should simulate onClick', () => {
-    jest.useFakeTimers();
-    let instance = rendered.getInstance();
-    let children = instance.props.children;
 
-    // const spy = jest.spyOn(instance, 'onLogin');
+  it('should simulate [onLogin] click', () => {
+    jest.useFakeTimers();
+
+    const intro = root.findByType(Intro);
+
+    const spy = jest.spyOn(intro.instance, 'onLogin');
     const buttons = root.findAllByType(Button);
-    buttons[0].props.onPress();
+    intro.instance.onLogin(AppContext);
     expect(setTimeout).toHaveBeenCalledTimes(1);
+    expect(intro.instance.state.isLoggingIn).toEqual(true);
+    expect(spy).toBeCalled();
 
     jest.runAllTimers();
-    // expect(instance.state.isLoggingIn).toEqual(false);
-    expect(instance.state.user.displayName).toEqual('dooboolab');
-    expect(instance.state.user.age).toEqual(30);
-    expect(instance.state.user.job).toEqual('developer');
-    // expect(spy).toBeCalled();
-    // buttons[1].props.onPress();
-    // expect(props.navigation.navigate).toBeCalledWith('Temp');
+    expect(intro.instance.state.isLoggingIn).toEqual(false);
+    expect(intro.instance.props.actions.setUser).toHaveBeenCalled();
+
+    buttons[0].props.onClick();
+  });
+
+  it('should simulate [navigate] click', () => {
+    const buttons = root.findAllByType(Button);
+    buttons[1].props.onClick();
+    expect(props.navigation.navigate).toBeCalledWith('Temp');
   });
 });

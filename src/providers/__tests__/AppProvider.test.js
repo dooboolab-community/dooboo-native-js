@@ -41,44 +41,17 @@ describe('[AppProvider] interactions', () => {
     rendered = renderer.create(component);
     root = rendered.root;
   });
-  it('should check [resetUser] actions', () => {
+  it('should trigger [resetUser] action', () => {
     let instance = root.instance;
     instance.actions.resetUser();
   });
 
   it('should check trigger actions when method called', () => {
     let instance = root.instance;
-
-    // let appMockFunc = {
-    //   setUser: jest.fn(),
-    //   open: jest.fn(),
-    //   close: jest.fn(),
-    //   showAddBtn: jest.fn(),
-    // };
-    // // ## got hint: 
-    // // - https://github.com/airbnb/enzyme/issues/361#issuecomment-397334665
-    // // - https://jestjs.io/docs/en/23.x/mock-functions#mocking-modules
-
-    // let appElement = appWrapper.getElement();
-    // appElement.ref(appMockFunc);
-    // expect(instance.app).toBeTruthy();
-    
-    // const appSetUser = jest.spyOn(instance.app, 'setUser');
-    // const appOpened = jest.spyOn(instance.app, 'open');
-    // const appClosed = jest.spyOn(instance.app, 'close');
-    // const appShowAddBtn = jest.spyOn(instance.app, 'showAddBtn');
-
-    // appWrapper.props().onChatPressed();
-    // expect(appClosed).toHaveBeenCalled();
-
-    // instance.actions.showapp(friend, true);
-    // expect(appSetUser).toHaveBeenCalled();
-    // expect(appOpened).toHaveBeenCalled();
-    // expect(appShowAddBtn).toHaveBeenCalled();
-    // expect(instance.state.user).toEqual(friend);
-
-    // instance.actions.setapp(null);
-    // instance.actions.showapp(friend, true);
-    // expect(instance.app).toBeFalsy();
+    instance.actions.setUser({
+      displayName: '',
+      age: 0,
+      job: '',
+    });
   });
 });
