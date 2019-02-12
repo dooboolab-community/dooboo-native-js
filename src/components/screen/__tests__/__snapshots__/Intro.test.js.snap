@@ -7,7 +7,7 @@ exports[`[Intro] screen rendering test should render outer component and snapsho
       Object {
         "alignItems": "center",
         "alignSelf": "stretch",
-        "backgroundColor": "rgb(12, 157, 197)",
+        "backgroundColor": "rgb(65,77,107)",
         "flexBasis": 0,
         "flexDirection": "column",
         "flexGrow": 1,
@@ -151,6 +151,13 @@ exports[`[Intro] screen rendering test should render outer component and snapsho
       </View>
     </View>
     <View
+      style={
+        Object {
+          "marginTop": 8,
+        }
+      }
+    />
+    <View
       accessible={true}
       isTVSelectable={true}
       onResponderGrant={[Function]}
@@ -178,9 +185,6 @@ exports[`[Intro] screen rendering test should render outer component and snapsho
               "height": 52,
               "justifyContent": "center",
               "width": 320,
-            },
-            Object {
-              "marginTop": 8,
             },
           ]
         }

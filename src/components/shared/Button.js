@@ -30,22 +30,18 @@ const StyledButton = styled.View`
   justify-content: center;
 `;
 
-const StyledButtonDisabled = styled.View`
-  background-color: rgb(243,243,243);
-  align-self: center;
-  border-radius: 4;
-  border-width: 2;
-  width: 320;
-  height: 52;
-  border-color: #333;
-
-  align-items: center;
-  justify-content: center;
+const StyledButtonDisabled = styled(StyledButton)`
+  background-color: rgb(224,224,224);
+  border-color: rgb(200,200,200);
 `;
 
 const StyledText = styled.Text`
   font-size: 14;
   color: white;
+`;
+
+const StyledTextDisabled = styled(StyledText)`
+  color: #969696;
 `;
 
 const StyledImage = styled.Image`
@@ -85,7 +81,7 @@ class Button extends Component<Props, State> {
     if (this.props.isDisabled) {
       return (
         <StyledButtonDisabled style={this.props.disabledStyle}>
-          <StyledText style={this.props.textStyle}>{this.props.text}</StyledText>
+          <StyledTextDisabled style={this.props.textStyle}>{this.props.text}</StyledTextDisabled>
         </StyledButtonDisabled>
       );
     }
