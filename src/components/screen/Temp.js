@@ -14,20 +14,25 @@ import {
   InteractionManager,
 } from 'react-native';
 
+import styled from 'styled-components/native';
+
 import { ratio } from '../../utils/Styles';
 import {
   IC_MASK,
 } from '../../utils/Icons';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'transparent',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const Container = styled.View`
+  flex: 1;
+  background-color: transparent;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledText = styled.Text`
+  font-size: 16;
+  color: #333;
+`;
 
 type Props = {
 }
@@ -44,9 +49,9 @@ class Page extends Component<Props, State> {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Temporary Page</Text>
-      </View>
+      <Container>
+        <StyledText>Temporary Page</StyledText>
+      </Container>
     );
   }
 }
