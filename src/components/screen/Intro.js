@@ -20,13 +20,13 @@ import type {
   ____TextStyleProp_Internal as TextStyle,
   ____ImageStyleProp_Internal as ImageStyle,
 } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
+
 import type {
   User,
 } from '../../types';
 import type { State as AppState } from '../../providers/AppProvider';
 
 import styled from 'styled-components/native';
-import { device } from '../../theme';
 
 import { AppConsumer } from '../../providers/AppProvider';
 import { ratio, colors } from '../../utils/Styles';
@@ -34,12 +34,11 @@ import { IC_MASK } from '../../utils/Icons';
 import { getString } from '../../../STRINGS';
 import Button from '../shared/Button';
 
-// background-color: ${(props) => props.theme.background};
 const Container = styled.View`
   flex: 1;
   align-self: stretch;
   overflow: scroll;
-  background-color: rgb(12, 157, 197);
+  background-color: ${colors.dusk};
 
   flex-direction: column;
   justify-content: flex-start;
@@ -118,9 +117,9 @@ class Page extends Component<Props, State> {
                     // white={true}
                     text={getString('LOGIN')}
                   />
+                  <View style={{ marginTop: 8 }}/>
                   <Button
                     id='btn'
-                    style={{ marginTop: 8 }}
                     onClick={() => this.props.navigation.navigate('Temp') }
                     white={true}
                     text={getString('NAVIGATE')}
