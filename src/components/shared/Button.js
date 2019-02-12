@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import styled from 'styled-components/native';
 import {
   ActivityIndicator,
   StyleSheet,
@@ -16,42 +17,43 @@ import type {
 
 import { ratio, colors } from '../../utils/Styles';
 
-const styles = StyleSheet.create({
-  btn: {
-    backgroundColor: 'transparent',
-    alignSelf: 'center',
-    borderRadius: 4,
-    borderWidth: 2,
-    width: 320,
-    height: 52,
-    borderColor: 'white',
+const StyledButton = styled.View`
+  background-color: transparent;
+  align-self: center;
+  border-radius: 4;
+  border-width: 2;
+  width: 320;
+  height: 52;
+  border-color: white;
 
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  btnDisabled: {
-    backgroundColor: 'rgb(243,243,243)',
-    alignSelf: 'center',
-    borderRadius: 4,
-    borderWidth: 2,
-    width: 320,
-    height: 52,
-    borderColor: '#333',
+  align-items: center;
+  justify-content: center;
+`;
 
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  txt: {
-    fontSize: 14,
-    color: 'white',
-  },
-  imgLeft: {
-    width: 24,
-    height: 24,
-    position: 'absolute',
-    left: 16,
-  },
-});
+const StyledButtonDisabled = styled.View`
+  background-color: rgb(243,243,243);
+  align-self: center;
+  border-radius: 4;
+  border-width: 2;
+  width: 320;
+  height: 52;
+  border-color: #333;
+
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledText = styled.Text`
+  font-size: 14;
+  color: white;
+`;
+
+const StyledImage = styled.Image`
+  width: 24;
+  height: 24;
+  position: absolute;
+  left: 16;
+`;
 
 type Props = {
   isLoading?: boolean;
@@ -64,7 +66,7 @@ type Props = {
   imgLeftStyle?: ImageStyle;
   indicatorColor?: string;
   activeOpacity?: number;
-  children?: any;
+  text?: string;
 }
 
 type State = {
@@ -75,9 +77,6 @@ class Button extends Component<Props, State> {
   static defaultProps: Props = {
     isLoading: false,
     isDisabled: false,
-    style: styles.btn,
-    textStyle: styles.txt,
-    imgLeftStyle: styles.imgLeft,
     indicatorColor: 'white',
     activeOpacity: 0.5,
   };
@@ -85,16 +84,16 @@ class Button extends Component<Props, State> {
   render() {
     if (this.props.isDisabled) {
       return (
-        <View style={this.props.disabledStyle}>
-          <Text style={this.props.textStyle}>{this.props.children}</Text>
-        </View>
+        <StyledButtonDisabled style={this.props.disabledStyle}>
+          <StyledText style={this.props.textStyle}>{this.props.text}</StyledText>
+        </StyledButtonDisabled>
       );
     }
     if (this.props.isLoading) {
       return (
-        <View style={this.props.style}>
+        <StyledButton style={this.props.style}>
           <ActivityIndicator size='small' color={this.props.indicatorColor} />
-        </View>
+        </StyledButton>
       );
     }
     return (
@@ -102,17 +101,17 @@ class Button extends Component<Props, State> {
         activeOpacity={this.props.activeOpacity}
         onPress={this.props.onClick}
       >
-        <View style={this.props.style}>
+        <StyledButton style={this.props.style}>
           {
             this.props.imgLeftSrc
-              ? <Image
+              ? <StyledImage
                 style={this.props.imgLeftStyle}
                 source={this.props.imgLeftSrc}
               />
               : null
           }
-          <Text style={this.props.textStyle}>{this.props.children}</Text>
-        </View>
+          <StyledText style={this.props.textStyle}>{this.props.text}</StyledText>
+        </StyledButton>
       </TouchableOpacity>
     );
   }

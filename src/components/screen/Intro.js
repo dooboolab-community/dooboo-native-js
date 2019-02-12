@@ -25,80 +25,49 @@ import type {
 } from '../../types';
 import type { State as AppState } from '../../providers/AppProvider';
 
+import styled from 'styled-components/native';
+import { device } from '../../theme';
+
 import { AppConsumer } from '../../providers/AppProvider';
 import { ratio, colors } from '../../utils/Styles';
 import { IC_MASK } from '../../utils/Icons';
 import { getString } from '../../../STRINGS';
 import Button from '../shared/Button';
 
-type Style = {
-  container: ViewStyle,
-  titleTxt: TextStyle,
-  txtLogin: ViewStyle,
-  imgBtn: ImageStyle,
-  viewUser: ViewStyle,
-  txtUser: TextStyle,
-  btnBottomWrapper: ViewStyle,
-  btnLogin: ViewStyle,
-  btnNavigate: ViewStyle,
-};
+// background-color: ${(props) => props.theme.background};
+const Container = styled.View`
+  flex: 1;
+  align-self: stretch;
+  overflow: scroll;
+  background-color: rgb(12, 157, 197);
 
-const styles: Style = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  titleTxt: {
-    marginTop: 100,
-    color: colors.dusk,
-    fontSize: 24,
-  },
-  txtLogin: {
-    fontSize: 14,
-    color: 'white',
-  },
-  imgBtn: {
-    width: 24,
-    height: 24,
-    position: 'absolute',
-    left: 16,
-  },
-  viewUser: {
-    marginTop: 80,
-    alignItems: 'center',
-  },
-  txtUser: {
-    fontSize: 16,
-    color: colors.dusk,
-    lineHeight: 48,
-  },
-  btnBottomWrapper: {
-    position: 'absolute',
-    bottom: 40,
-  },
-  btnLogin: {
-    backgroundColor: colors.dodgerBlue,
-    alignSelf: 'center',
-    borderRadius: 4,
-    width: 320,
-    height: 52,
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+`;
 
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  btnNavigate: {
-    backgroundColor: 'white',
-    alignSelf: 'center',
-    borderRadius: 4,
-    width: 320,
-    height: 52,
+const ContentWrapper = styled.View`
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+`;
 
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const ButtonWrapper = styled.View`
+  position: absolute;
+  flex-direction: column;
+  bottom: 40;
+  width: 85%;
+  align-self: center;
+`;
+
+const StyledText = styled.Text`
+  font-size: 18;
+  line-height: 27;
+  color: white;
+`;
 
 type Props = {
   store: any;
@@ -130,36 +99,34 @@ class Page extends Component<Props, State> {
         {
           (data) => {
             return (
-              <View style={styles.container}>
-                <Text style={styles.titleTxt}>DOOBOO NATIVE</Text>
-                <View style={styles.viewUser}>
-                  <Text style={styles.txtUser}>{data.state.user.displayName}</Text>
-                  <Text style={styles.txtUser}>{data.state.user.age ? data.state.user.age : ''}</Text>
-                  <Text style={styles.txtUser}>{data.state.user.job}</Text>
-                </View>
-                <View style={styles.btnBottomWrapper}>
+              <Container>
+                <ContentWrapper>
+                  <StyledText
+                    style={{
+                      marginTop: 100,
+                    }}
+                  >{data.state.user.displayName}</StyledText>
+                  <StyledText>{data.state.user.age ? data.state.user.age : ''}</StyledText>
+                  <StyledText>{data.state.user.job}</StyledText>
+                </ContentWrapper>
+                <ButtonWrapper>
                   <Button
+                    id='btn'
+                    imgLeftSrc={IC_MASK}
                     isLoading={this.state.isLoggingIn}
                     onClick={() => this.onLogin(data)}
-                    style={styles.btnLogin}
-                    textStyle={styles.txtLogin}
-                    imgLeftSrc={IC_MASK}
-                    imgLeftStyle={styles.imgBtn}
-                  >{getString('LOGIN')}</Button>
+                    // white={true}
+                    text={getString('LOGIN')}
+                  />
                   <Button
+                    id='btn'
+                    style={{ marginTop: 8 }}
                     onClick={() => this.props.navigation.navigate('Temp') }
-                    style={[
-                      styles.btnNavigate,
-                      {
-                        marginTop: 15,
-                      },
-                    ]}
-                    textStyle={{
-                      color: colors.dodgerBlue,
-                    }}
-                  >Navigate</Button>
-                </View>
-              </View>
+                    white={true}
+                    text={getString('NAVIGATE')}
+                  />
+                </ButtonWrapper>
+              </Container>
             );
           }
         }

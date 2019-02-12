@@ -39,9 +39,9 @@ class AppProvider extends React.Component<Props, State> {
 
   render() {
     const { state, actions } = this;
-    const value = { state, actions };
+    const store = { state, actions };
     return (
-      <AppContext.Provider value={value}>
+      <AppContext.Provider value={store}>
         {this.props.children}
       </AppContext.Provider>
     );
