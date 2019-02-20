@@ -117,7 +117,7 @@ function Intro(props: Props) {
       </ContentWrapper>
       <ButtonWrapper>
         <Button
-          id='btn'
+          testID='btn1'
           imgLeftSrc={IC_MASK}
           isLoading={isLoggingIn}
           onClick={() => onLogin()}
@@ -126,7 +126,7 @@ function Intro(props: Props) {
         />
         <View style={{ marginTop: 8 }}/>
         <Button
-          id='btn'
+          testID='btn2'
           onClick={() => props.navigation.navigate('Temp') }
           white={true}
           text={getString('NAVIGATE')}
