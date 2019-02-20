@@ -20,16 +20,37 @@ const props = {
 
 const component = (
   <AppProvider>
-    <Intro {...props}/>
+    <Intro {...props} />
   </AppProvider>
 );
+
+const context = AppContext;
+
+// beforeEach(() => {
+//   container = document.createElement('div');
+//   document.body.appendChild(container);
+// });
+
+// afterEach(() => {
+//   document.body.removeChild(container);
+//   container = null;
+// });
 
 // test for the container page in dom
 describe('[Intro] screen rendering test', () => {
   let json;
 
   it('should render outer component and snapshot matches', () => {
-    json = renderer.create(component).toJSON();
+    json = renderer.create(component, { context }).toJSON();
+    expect(json).toMatchSnapshot();
+  });
+});
+
+describe('[Intro] screen rendering test', () => {
+  let json;
+
+  it('should render outer component and snapshot matches', () => {
+    json = renderer.create(component, { context }).toJSON();
     expect(json).toMatchSnapshot();
   });
 });
@@ -38,36 +59,29 @@ describe('[Intro] Interaction', () => {
   let rendered: TestRenderer.ReactTestRenderer;
   let root: TestRenderer.ReactTestRenderer.root;
   let instance;
-  let children;
-
-  beforeEach(() => {
-    rendered = renderer.create(component);
-    root = rendered.root;
-    instance = rendered.getInstance();
-    children = instance.props.children;
-  });
-
 
   it('should simulate [onLogin] click', () => {
+    rendered = renderer.create(component, { context });
+    root = rendered.root;
+
     jest.useFakeTimers();
 
-    const intro = root.findByType(Intro);
-
-    const spy = jest.spyOn(intro.instance, 'onLogin');
     const buttons = root.findAllByType(Button);
-    intro.instance.onLogin(AppContext);
+    buttons[0].props.onClick();
+    // expect(context.dispatch).toHaveBeenCalledWith({ type: 'reset-user' });
+    // expect(context.dispatch).toHaveBeenCalledWith({ type: 'set-user' }, expect.any(Object));
     expect(setTimeout).toHaveBeenCalledTimes(1);
-    expect(intro.instance.state.isLoggingIn).toEqual(true);
-    expect(spy).toBeCalled();
+    // expect(props.isLoading).toEqual(true); // TODO: test with useState
 
     jest.runAllTimers();
-    expect(intro.instance.state.isLoggingIn).toEqual(false);
-    expect(intro.instance.props.actions.setUser).toHaveBeenCalled();
-
-    buttons[0].props.onClick();
+    expect(clearTimeout).toHaveBeenCalledTimes(1);
+    // expect(buttons[0].props.isLoading).toEqual(false); // TODO: test with useState
   });
 
   it('should simulate [navigate] click', () => {
+    rendered = renderer.create(component, { context });
+    root = rendered.root;
+
     const buttons = root.findAllByType(Button);
     buttons[1].props.onClick();
     expect(props.navigation.navigate).toBeCalledWith('Temp');

@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { useReducer } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { AppContext } from '../contexts';
 import type { User } from '../types';
@@ -18,34 +18,24 @@ const initialState: State = {
   },
 };
 
-class AppProvider extends React.Component<Props, State> {
-  constructor(props) {
-    super(props);
-    this.state = initialState;
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'reset-user':
+      return { ...state, user: initialState.user };
+    case 'set-user':
+      return { ...state, user: action.payload };
   }
+};
 
-  actions = {
-    setUser: (user: User) => {
-      this.setState({
-        user,
-      });
-    },
-    resetUser: () => {
-      this.setState({
-        user: initialState.user,
-      });
-    }
-  };
+function AppProvider(props: Props) {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const value = { state, dispatch };
 
-  render() {
-    const { state, actions } = this;
-    const store = { state, actions };
-    return (
-      <AppContext.Provider value={store}>
-        {this.props.children}
-      </AppContext.Provider>
-    );
-  }
+  return (
+    <AppContext.Provider value={value}>
+      {props.children}
+    </AppContext.Provider>
+  );
 }
 
-export { AppConsumer, AppProvider };
+export { AppConsumer, AppProvider, AppContext };

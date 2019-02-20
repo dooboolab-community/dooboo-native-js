@@ -69,48 +69,46 @@ type State = {
 
 }
 
-class Button extends Component<Props, State> {
-  static defaultProps: Props = {
-    isLoading: false,
-    isDisabled: false,
-    indicatorColor: 'white',
-    activeOpacity: 0.5,
-  };
-
-  render() {
-    if (this.props.isDisabled) {
-      return (
-        <StyledButtonDisabled style={this.props.disabledStyle}>
-          <StyledTextDisabled style={this.props.textStyle}>{this.props.text}</StyledTextDisabled>
-        </StyledButtonDisabled>
-      );
-    }
-    if (this.props.isLoading) {
-      return (
-        <StyledButton style={this.props.style}>
-          <ActivityIndicator size='small' color={this.props.indicatorColor} />
-        </StyledButton>
-      );
-    }
+function Button(props: Props, state: State) {
+  if (props.isDisabled) {
     return (
-      <TouchableOpacity
-        activeOpacity={this.props.activeOpacity}
-        onPress={this.props.onClick}
-      >
-        <StyledButton style={this.props.style}>
-          {
-            this.props.imgLeftSrc
-              ? <StyledImage
-                style={this.props.imgLeftStyle}
-                source={this.props.imgLeftSrc}
-              />
-              : null
-          }
-          <StyledText style={this.props.textStyle}>{this.props.text}</StyledText>
-        </StyledButton>
-      </TouchableOpacity>
+      <StyledButtonDisabled style={props.disabledStyle}>
+        <StyledTextDisabled style={props.textStyle}>{props.text}</StyledTextDisabled>
+      </StyledButtonDisabled>
     );
   }
+  if (props.isLoading) {
+    return (
+      <StyledButton style={props.style}>
+        <ActivityIndicator size='small' color={props.indicatorColor} />
+      </StyledButton>
+    );
+  }
+  return (
+    <TouchableOpacity
+      activeOpacity={props.activeOpacity}
+      onPress={props.onClick}
+    >
+      <StyledButton style={props.style}>
+        {
+          props.imgLeftSrc
+            ? <StyledImage
+              style={props.imgLeftStyle}
+              source={props.imgLeftSrc}
+            />
+            : null
+        }
+        <StyledText style={props.textStyle}>{props.text}</StyledText>
+      </StyledButton>
+    </TouchableOpacity>
+  );
 }
+
+Button.defaultProps = {
+  isLoading: false,
+  isDisabled: false,
+  indicatorColor: 'white',
+  activeOpacity: 0.5,
+};
 
 export default Button;

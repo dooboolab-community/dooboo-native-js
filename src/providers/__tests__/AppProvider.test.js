@@ -41,17 +41,18 @@ describe('[AppProvider] interactions', () => {
     rendered = renderer.create(component);
     root = rendered.root;
   });
-  it('should trigger [resetUser] action', () => {
-    let instance = root.instance;
-    instance.actions.resetUser();
-  });
 
-  it('should check trigger actions when method called', () => {
-    let instance = root.instance;
-    instance.actions.setUser({
-      displayName: '',
-      age: 0,
-      job: '',
-    });
-  });
+  // it('should trigger [resetUser] action', () => {
+  //   let instance = root.instance;
+  //   instance.actions.resetUser();
+  // });
+
+  // it('should check trigger actions when method called', () => {
+  //   let instance = root.instance;
+  //   instance.actions.setUser({
+  //     displayName: '',
+  //     age: 0,
+  //     job: '',
+  //   });
+  // });
 });

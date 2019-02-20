@@ -16,6 +16,7 @@ import {
 
 import styled from 'styled-components/native';
 
+import Button from '../shared/Button';
 import { ratio } from '../../utils/Styles';
 import {
   IC_MASK,
@@ -29,31 +30,26 @@ const Container = styled.View`
   justify-content: center;
 `;
 
-const StyledText = styled.Text`
-  font-size: 16;
-  color: #333;
-`;
-
 type Props = {
+  navigation: any;
 }
 
 type State = {
 }
 
-class Page extends Component<Props, State> {
-  static navigationOptions = {
-    headerTitle: <Text style={{
-      fontSize: 18,
-    }}>Temp</Text>,
-  };
-
-  render() {
-    return (
-      <Container>
-        <StyledText>Temporary Page</StyledText>
-      </Container>
-    );
-  }
+function Page(props: Props, state: State) {
+  return (
+    <Container>
+      <Button
+        id='btn'
+        onClick={() => props.navigation.goBack()}
+        text='Go Back'
+        style={{
+          backgroundColor: '#333333',
+        }}
+      />
+    </Container>
+  );
 }
 
 export default Page;

@@ -26,8 +26,8 @@
     "build:android": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.js --platform android --dev false --bundle-output ./android/main.jsbundle --assets-dest ./android --sourcemap-output ./android/main.jsbundle.map"
   },
   "dependencies": {
-    "react": "16.6.3",
-    "react-native": "0.58.5",
+    "react": "16.8.1",
+    "react-native": "0.59.0-rc.2",
     "react-native-gesture-handler": "^1.0.15",
     "react-native-localization": "^2.0.3",
     "react-native-modalbox": "^1.7.1",
@@ -58,7 +58,7 @@
     "jest": "24.1.0",
     "jsc-android": "^236355.1.1",
     "metro-react-native-babel-preset": "^0.52.0",
-    "react-dom": "^16.6.3",
-    "react-test-renderer": "16.6.3"
+    "react-dom": "^16.8.1",
+    "react-test-renderer": "16.8.1"
   }
 }
