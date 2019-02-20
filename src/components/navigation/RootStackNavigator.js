@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 import { colors } from '../../utils/Styles';
@@ -15,6 +16,11 @@ const routeConfig = {
   },
   Temp: {
     screen: TempScreen,
+    navigationOptions: {
+      headerTitle: <Text style={{
+        fontSize: 18,
+      }}>Temp</Text>,
+    },
     path: 'temp',
   },
 };

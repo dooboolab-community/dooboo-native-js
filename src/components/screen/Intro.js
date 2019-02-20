@@ -24,11 +24,10 @@ import type {
 import type {
   User,
 } from '../../types';
-import type { State as AppState } from '../../providers/AppProvider';
+import { AppProvider as Provider, AppConsumer, AppContext } from '../../providers';
 
 import styled from 'styled-components/native';
 
-import { AppConsumer } from '../../providers/AppProvider';
 import { ratio, colors } from '../../utils/Styles';
 import { IC_MASK } from '../../utils/Icons';
 import { getString } from '../../../STRINGS';
@@ -72,81 +71,69 @@ type Props = {
   store: any;
   navigation: NavigationScreenProp<NavigationStateRoute>;
 };
+
 type State = {
   isLoggingIn: boolean;
 }
 
-class Page extends Component<Props, State> {
-  timer: any;
+function Intro(props: Props) {
+  let timer: any;
+  let { state, dispatch } = React.useContext(AppContext);
+  let [isLoggingIn, setIsLoggingIn] = React.useState(false);
 
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      isLoggingIn: false,
+  const onLogin = () => {
+    dispatch({ type: 'reset-user' });
+    setIsLoggingIn(true);
+    timer = setTimeout(() => {
+      const user: User = {
+        displayName: 'dooboolab',
+        age: 30,
+        job: 'developer',
+      };
+      dispatch({ type: 'set-user', payload: user });
+      setIsLoggingIn(false);
+      clearTimeout(timer);
+    }, 1000);
+  };
+
+  const navigate = () => {
+    const location: Object = {
+      pathname: '/404',
+      state: {},
     };
-  }
+    props.history.push(location);
+  };
 
-  componentWillUnmount() {
-    if (this.timer) {
-      clearTimeout(this.timer);
-    }
-  }
-
-  render() {
-    return (
-      <AppConsumer>
-        {
-          (data) => {
-            return (
-              <Container>
-                <ContentWrapper>
-                  <StyledText
-                    style={{
-                      marginTop: 100,
-                    }}
-                  >{data.state.user.displayName}</StyledText>
-                  <StyledText>{data.state.user.age ? data.state.user.age : ''}</StyledText>
-                  <StyledText>{data.state.user.job}</StyledText>
-                </ContentWrapper>
-                <ButtonWrapper>
-                  <Button
-                    id='btn'
-                    imgLeftSrc={IC_MASK}
-                    isLoading={this.state.isLoggingIn}
-                    onClick={() => this.onLogin(data)}
-                    // white={true}
-                    text={getString('LOGIN')}
-                  />
-                  <View style={{ marginTop: 8 }}/>
-                  <Button
-                    id='btn'
-                    onClick={() => this.props.navigation.navigate('Temp') }
-                    white={true}
-                    text={getString('NAVIGATE')}
-                  />
-                </ButtonWrapper>
-              </Container>
-            );
-          }
-        }
-      </AppConsumer>
-    );
-  }
-
-  onLogin = (data: AppState) => {
-    data.actions.resetUser();
-    this.setState({ isLoggingIn: true }, () => {
-      this.timer = setTimeout(() => {
-        const user: User = {
-          displayName: 'dooboolab',
-          age: 30,
-          job: 'developer',
-        };
-        data.actions.setUser(user);
-        this.setState({ isLoggingIn: false });
-      }, 1000);
-    });
-  }
+  return (
+    <Container>
+      <ContentWrapper>
+        <StyledText
+          style={{
+            marginTop: 100,
+          }}
+        >{state.user.displayName}</StyledText>
+        <StyledText>{state.user.age ? state.user.age : ''}</StyledText>
+        <StyledText>{state.user.job}</StyledText>
+      </ContentWrapper>
+      <ButtonWrapper>
+        <Button
+          id='btn'
+          imgLeftSrc={IC_MASK}
+          isLoading={isLoggingIn}
+          onClick={() => onLogin()}
+          // white={true}
+          text={getString('LOGIN')}
+        />
+        <View style={{ marginTop: 8 }}/>
+        <Button
+          id='btn'
+          onClick={() => props.navigation.navigate('Temp') }
+          white={true}
+          text={getString('NAVIGATE')}
+        />
+      </ButtonWrapper>
+    </Container>
+  );
 }
 
-export default Page;
+export default Intro;
