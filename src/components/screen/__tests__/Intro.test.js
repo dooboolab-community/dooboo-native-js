@@ -7,6 +7,7 @@ import Button from '../../shared/Button';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 import { AppContext } from './testHelpers';
+import { render, fireEvent } from 'react-native-testing-library';
 
 const props = {
   navigation: {
@@ -59,18 +60,21 @@ describe('[Intro] Interaction', () => {
   let rendered: TestRenderer.ReactTestRenderer;
   let root: TestRenderer.ReactTestRenderer.root;
   let instance;
+  let testingLib;
 
   it('should simulate [onLogin] click', () => {
     rendered = renderer.create(component, { context });
     root = rendered.root;
+    testingLib = render(component, { context });
 
     jest.useFakeTimers();
+    // const buttons = root.findAllByType(Button);
+    fireEvent(testingLib.getByTestId('btn1'), 'click');
 
-    const buttons = root.findAllByType(Button);
-    buttons[0].props.onClick();
+    expect(setTimeout).toHaveBeenCalledTimes(1)
     // expect(context.dispatch).toHaveBeenCalledWith({ type: 'reset-user' });
     // expect(context.dispatch).toHaveBeenCalledWith({ type: 'set-user' }, expect.any(Object));
-    expect(setTimeout).toHaveBeenCalledTimes(1);
+    
     // expect(props.isLoading).toEqual(true); // TODO: test with useState
 
     jest.runAllTimers();

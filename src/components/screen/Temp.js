@@ -41,7 +41,7 @@ function Page(props: Props, state: State) {
   return (
     <Container>
       <Button
-        id='btn'
+        testID='btn'
         onClick={() => props.navigation.goBack()}
         text='Go Back'
         style={{
