@@ -96,14 +96,6 @@ function Intro(props: Props) {
     }, 1000);
   };
 
-  const navigate = () => {
-    const location: Object = {
-      pathname: '/404',
-      state: {},
-    };
-    props.history.push(location);
-  };
-
   return (
     <Container>
       <ContentWrapper>
