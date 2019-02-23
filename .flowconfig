@@ -19,8 +19,8 @@
 ; Ignore metro
 .*/node_modules/metro/.*
 
-; mobx setup
-.*node_modules/babel-plugin-flow-react-proptypes*.
+; Ignore testing library flow
+.*/node_modules/react-native-testing-library/.*
 
 [include]
 

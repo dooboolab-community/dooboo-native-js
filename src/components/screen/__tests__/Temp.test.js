@@ -3,7 +3,6 @@ import * as React from 'react';
 import Temp from '../Temp';
 import Button from '../../shared/Button';
 
-// Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 import { render, fireEvent } from 'react-native-testing-library';
 
@@ -13,7 +12,7 @@ const props = {
   },
 };
 
-describe('Temp', () => {
+describe('[Temp] render', () => {
   it('renders without crashing', () => {
     const rendered = renderer.create(<Temp />).toJSON();
     expect(rendered).toMatchSnapshot();
@@ -21,24 +20,17 @@ describe('Temp', () => {
   });
 });
 
-describe('Interaction', () => {
-  const component = <Temp {...props} />;
-  let rendered: ReactTestRenderer;
-  let root: ReactTestInstance | any;
-  let testingLib;
+describe('[Temp] Interaction', () => {
+  const component: React.Element<any> = <Temp {...props} />;
+  let renderResult: RenderResult;
 
   beforeEach(() => {
-    rendered = renderer.create(component);
-    root = rendered.root;
-    testingLib = render(component);
+    renderResult = render(component);
   });
 
-  it('Simulate onClick', () => {
-    // const spy = jest.spyOn(rendered.getInstance(), 'onClick');
-    const button = root.findByType(Button);
-    button.props.onClick();
+  it('should simulate [onClick] when [btn] has been clicked', () => {
+    const btnInstance: ReactTestInstance = renderResult.getByTestId('btn');
+    fireEvent(btnInstance, 'click');
     expect(props.navigation.goBack).toHaveBeenCalled();
-
-    fireEvent(testingLib.getByTestId('btn'), 'click');
   });
 });
