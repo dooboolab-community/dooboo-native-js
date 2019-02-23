@@ -5,16 +5,16 @@ import Button from '../Button';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
-describe('Button', () => {
+describe('[Button]', () => {
   let rendered: TestRenderer.ReactTestRenderer;
 
-  it('renders without crashing', () => {
+  it('should render without crashing', () => {
     rendered = renderer.create(<Button />);
     expect(rendered.toJSON()).toMatchSnapshot();
     expect(rendered.toJSON()).toBeTruthy();
   });
 
-  describe('component test', () => {
+  describe('[Button] Interaction', () => {
     let cnt = 1;
     let root: TestRenderer.ReactTestRenderer.root;
     it('simulate onPress', () => {
