@@ -68,18 +68,16 @@ describe('[Intro] Interaction', () => {
     testingLib = render(component, { context });
 
     jest.useFakeTimers();
-    // const buttons = root.findAllByType(Button);
+    const buttons = root.findAllByType(Button);
     fireEvent(testingLib.getByTestId('btn1'), 'click');
 
     expect(setTimeout).toHaveBeenCalledTimes(1)
     // expect(context.dispatch).toHaveBeenCalledWith({ type: 'reset-user' });
     // expect(context.dispatch).toHaveBeenCalledWith({ type: 'set-user' }, expect.any(Object));
     
-    // expect(props.isLoading).toEqual(true); // TODO: test with useState
-
     jest.runAllTimers();
     expect(clearTimeout).toHaveBeenCalledTimes(1);
-    // expect(buttons[0].props.isLoading).toEqual(false); // TODO: test with useState
+    expect(buttons[0].props.isLoading).toEqual(false); // TODO: test with useState
   });
 
   it('should simulate [navigate] click', () => {
