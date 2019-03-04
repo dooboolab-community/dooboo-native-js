@@ -5,21 +5,25 @@ DO NOT MODIFY OR CHANGE THE CODE BEFORE CONFIRMED BY `DOOBOOLAB`. THIS REPOSITOR
 [![codecov](https://codecov.io/gh/dooboolab/dooboo-native-js/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/dooboo-native-js)
 [![CircleCI](https://circleci.com/gh/dooboolab/dooboo-native-js.svg?style=svg)](https://circleci.com/gh/dooboolab/dooboo-native-js)
 
-> Specification
-* flow
-* react-navigation
-* localization
-* context-api
-* jest with react-test-renderer
-
 > Recently, we removed `mobx` from `js` boilerplate. We didn't, however, make changes in `ts` boilerplate. The reason to remove `mobx` is because we thought that this isn't suitable with what `react` brought up as a design pattern. Today, they are more supportive in `functional-programming` rather than `object-oriented` which has been powered by `react-hook` in `16.8`. Unlike, `js`, `typescript` users are more familiar with `OOP` because `typescript` has mimicked lots of features in `JAVA` and `C++`. We will also make changes to component later with `fp` style when `react@16.8` has landed in `react-native`. Hope you enjoy what we've brought up today as `react native javascript boilerplate`.
+
+> Specification
+* [react-native](https://github.com/facebook/react-native)
+* [react-navigation](https://github.com/react-navigation/react-navigation)
+* [flow](https://github.com/facebook/flow)
+* [localization](https://github.com/stefalda/ReactNativeLocalization)
+* [styled-components](https://github.com/styled-components/styled-components)
+* [ts-jest](https://github.com/kulshekhar/ts-jest)
+* [react-native-testing-library](https://github.com/callstack/react-native-testing-library)
+* [react-hook](https://reactjs.org/docs/hooks-intro.html)
 
 # Gain points
 ```
-1. Sample of context-api.
-2. Able to learn how to structure react native app with flow, context-api and jest.
-3. Test `linting`, `typing`, `jest` with `npm run build` command.
-4. Learn how to localize your project.
+1. Sample of context-api with `react-hook` (`useContext`).
+2. Know how to structure react native app with flow.
+3. Know how to write test code with `react-native-testing-library`.
+4. Know how to `lint` your project with `eslint`.
+5. Know how to localize your project.
 ```
 
 # INSTALL
