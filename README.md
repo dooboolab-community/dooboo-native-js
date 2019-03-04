@@ -44,7 +44,7 @@ app/
 │     └─ shared
 │  └─ contexts
 │  └─ utils
-│  └─ index.js
+│  └─ App.js
 ├─ test/
 ├─ .buckconfig
 ├─ .eslintignore
