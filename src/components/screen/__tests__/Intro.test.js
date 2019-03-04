@@ -6,7 +6,6 @@ import Button from '../../shared/Button';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { AppContext } from './testHelpers';
 import { render, fireEvent } from 'react-native-testing-library';
 
 const props = {
@@ -16,7 +15,6 @@ const props = {
   history: {
     push: jest.fn(),
   },
-  ...AppContext,
 };
 
 const component = (
@@ -24,8 +22,6 @@ const component = (
     <Intro {...props} />
   </AppProvider>
 );
-
-const context = AppContext;
 
 // beforeEach(() => {
 //   container = document.createElement('div');
@@ -42,7 +38,7 @@ describe('[Intro] screen rendering test', () => {
   let json;
 
   it('should render outer component and snapshot matches', () => {
-    json = renderer.create(component, { context }).toJSON();
+    json = renderer.create(component).toJSON();
     expect(json).toMatchSnapshot();
   });
 });
@@ -51,7 +47,7 @@ describe('[Intro] screen rendering test', () => {
   let json;
 
   it('should render outer component and snapshot matches', () => {
-    json = renderer.create(component, { context }).toJSON();
+    json = renderer.create(component).toJSON();
     expect(json).toMatchSnapshot();
   });
 });
@@ -63,9 +59,9 @@ describe('[Intro] Interaction', () => {
   let testingLib;
 
   it('should simulate [onLogin] click', () => {
-    rendered = renderer.create(component, { context });
+    rendered = renderer.create(component);
     root = rendered.root;
-    testingLib = render(component, { context });
+    testingLib = render(component);
 
     jest.useFakeTimers();
     const buttons = root.findAllByType(Button);
@@ -81,7 +77,7 @@ describe('[Intro] Interaction', () => {
   });
 
   it('should simulate [navigate] click', () => {
-    rendered = renderer.create(component, { context });
+    rendered = renderer.create(component);
     root = rendered.root;
 
     const buttons = root.findAllByType(Button);
