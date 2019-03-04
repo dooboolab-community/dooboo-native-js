@@ -78,8 +78,8 @@ type State = {
 
 function Intro(props: Props) {
   let timer: any;
-  let { state, dispatch } = React.useContext(AppContext);
-  let [isLoggingIn, setIsLoggingIn] = React.useState(false);
+  const { state, dispatch } = React.useContext(AppContext);
+  const [isLoggingIn, setIsLoggingIn] = React.useState(false);
 
   const onLogin = () => {
     dispatch({ type: 'reset-user' });
@@ -113,14 +113,12 @@ function Intro(props: Props) {
           imgLeftSrc={IC_MASK}
           isLoading={isLoggingIn}
           onClick={() => onLogin()}
-          // white={true}
           text={getString('LOGIN')}
         />
         <View style={{ marginTop: 8 }}/>
         <Button
           testID='btn2'
           onClick={() => props.navigation.navigate('Temp') }
-          white={true}
           text={getString('NAVIGATE')}
         />
       </ButtonWrapper>

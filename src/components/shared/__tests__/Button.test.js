@@ -18,12 +18,12 @@ describe('[Button]', () => {
     let cnt = 1;
     let root: TestRenderer.ReactTestRenderer.root;
     it('simulate onPress', () => {
-      rendered = renderer.create(<Button onPress={() => {
+      rendered = renderer.create(<Button onClick={() => {
         cnt++;
       }}/>);
       root = rendered.root;
 
-      root.props.onPress();
+      root.props.onClick();
       expect(cnt).toBe(2);
     });
 

@@ -52,6 +52,7 @@ const StyledImage = styled.Image`
 `;
 
 type Props = {
+  testID?: string;
   isLoading?: boolean;
   isDisabled?: boolean;
   onClick?: () => void;
