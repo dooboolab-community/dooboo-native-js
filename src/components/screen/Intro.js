@@ -37,7 +37,7 @@ const Container = styled.View`
   flex: 1;
   align-self: stretch;
   overflow: scroll;
-  background-color: ${colors.dusk};
+  background-color: ${({ theme }) => theme.background};
 
   flex-direction: column;
   justify-content: flex-start;
@@ -64,7 +64,7 @@ const ButtonWrapper = styled.View`
 const StyledText = styled.Text`
   font-size: 18;
   line-height: 27;
-  color: white;
+  color: ${({ theme }) => theme.fontColor};
 `;
 
 type Props = {
@@ -96,6 +96,23 @@ function Intro(props: Props) {
     }, 1000);
   };
 
+  const changeTheme = () => {
+    let payload;
+    if (state.theme === 'LIGHT') {
+      payload = {
+        theme: 'DARK',
+      };
+    } else {
+      payload = {
+        theme: 'LIGHT',
+      };
+    }
+    dispatch({
+      type: 'change-theme-mode',
+      payload,
+    });
+  };
+
   return (
     <Container>
       <ContentWrapper>
@@ -120,6 +137,12 @@ function Intro(props: Props) {
           testID='btn2'
           onClick={() => props.navigation.navigate('Temp') }
           text={getString('NAVIGATE')}
+        />
+        <View style={{ marginTop: 8 }}/>
+        <Button
+          testID='btn3'
+          onClick={() => changeTheme() }
+          text={getString('CHANGE_THEME')}
         />
       </ButtonWrapper>
     </Container>

@@ -22,7 +22,7 @@ exports[`[Button] should render without crashing 1`] = `
         Object {
           "alignItems": "center",
           "alignSelf": "center",
-          "backgroundColor": "transparent",
+          "backgroundColor": "#069ccd",
           "borderColor": "white",
           "borderRadius": 4,
           "borderWidth": 2,

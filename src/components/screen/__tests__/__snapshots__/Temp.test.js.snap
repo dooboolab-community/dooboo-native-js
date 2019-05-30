@@ -6,7 +6,7 @@ exports[`[Temp] render renders without crashing 1`] = `
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "transparent",
+        "backgroundColor": "white",
         "flexBasis": 0,
         "flexDirection": "row",
         "flexGrow": 1,
@@ -37,7 +37,7 @@ exports[`[Temp] render renders without crashing 1`] = `
           Object {
             "alignItems": "center",
             "alignSelf": "center",
-            "backgroundColor": "transparent",
+            "backgroundColor": "#069ccd",
             "borderColor": "white",
             "borderRadius": 4,
             "borderWidth": 2,

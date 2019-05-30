@@ -31,16 +31,19 @@ const navigatorConfig = {
   // headerMode: 'none',
   gesturesEnabled: true,
   statusBarStyle: 'light-content',
-  navigationOptions: {
-    headerStyle: {
-      headerBackTitle: null,
-      backgroundColor: colors.dodgerBlue,
-      borderBottomColor: 'transparent',
-      borderBottomWidth: 0,
-      elevation: 0,
-    },
-    headerTitleStyle: { color: 'white' },
-    headerTintColor: 'white',
+  navigationOptions: ({ navigation, screenProps }) => {
+    const { theme } = screenProps;
+    return ({
+      headerStyle: {
+        headerBackTitle: null,
+        backgroundColor: theme.background,
+        borderBottomColor: 'transparent',
+        borderBottomWidth: 0,
+        elevation: 0,
+      },
+      headerTitleStyle: { color: theme.fontColor },
+      headerTintColor: 'white',
+    });
   },
 };
 
