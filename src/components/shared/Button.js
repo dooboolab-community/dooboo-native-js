@@ -18,7 +18,7 @@ import type {
 import { ratio, colors } from '../../utils/Styles';
 
 const StyledButton = styled.View`
-  background-color: transparent;
+  background-color: ${({ theme }) => theme.btnPrimary};
   align-self: center;
   border-radius: 4;
   border-width: 2;
@@ -31,17 +31,17 @@ const StyledButton = styled.View`
 `;
 
 const StyledButtonDisabled = styled(StyledButton)`
-  background-color: rgb(224,224,224);
+  background-color: ${({ theme }) => theme.btnDisabled};
   border-color: rgb(200,200,200);
 `;
 
 const StyledText = styled.Text`
   font-size: 14;
-  color: white;
+  color: ${({ theme }) => theme.btnPrimaryFont};
 `;
 
 const StyledTextDisabled = styled(StyledText)`
-  color: #969696;
+  color: ${({ theme }) => theme.textDisabled};
 `;
 
 const StyledImage = styled.Image`
@@ -70,7 +70,7 @@ type State = {
 
 }
 
-function Button(props: Props, state: State) {
+function Button(props: Props) {
   if (props.isDisabled) {
     return (
       <StyledButtonDisabled style={props.disabledStyle}>

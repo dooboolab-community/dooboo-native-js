@@ -24,6 +24,10 @@ const reducer = (state, action) => {
       return { ...state, user: initialState.user };
     case 'set-user':
       return { ...state, user: action.payload };
+    case 'change-theme-mode':
+      return { ...state, theme: action.payload.theme };
+    default:
+      return null;
   }
 };
 

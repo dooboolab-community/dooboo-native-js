@@ -24,7 +24,7 @@ import {
 
 const Container = styled.View`
   flex: 1;
-  background-color: transparent;
+  background-color: ${(props) => props.theme.background};
   flex-direction: row;
   align-items: center;
   justify-content: center;

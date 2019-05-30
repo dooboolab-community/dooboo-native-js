@@ -1,12 +1,15 @@
 import 'react-native';
 import * as React from 'react';
-import { AppProvider } from '../../../providers';
-import Intro from '../Intro';
-import Button from '../../shared/Button';
 
+import { ThemeProvider } from 'styled-components/native';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 import { render, fireEvent } from 'react-native-testing-library';
+
+import { createTheme } from '../../../theme';
+import { AppProvider } from '../../../providers';
+import Intro from '../Intro';
+import Button from '../../shared/Button';
 
 const props = {
   navigation: {
@@ -19,7 +22,9 @@ const props = {
 
 const component = (
   <AppProvider>
-    <Intro {...props} />
+    <ThemeProvider theme={createTheme()}>
+      <Intro {...props} />
+    </ThemeProvider>
   </AppProvider>
 );
 
