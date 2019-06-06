@@ -28,12 +28,12 @@
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59.9",
-    "react-native-gesture-handler": "^1.2.2",
-    "react-native-localization": "^2.1.1",
+    "react-native-gesture-handler": "^1.3.0",
+    "react-native-localization": "^2.1.2",
     "react-native-modalbox": "^1.7.1",
     "react-native-status-bar-height": "^2.3.1",
     "react-navigation": "^3.11.0",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -55,8 +55,8 @@
     "jest": "24.8.0",
     "jsc-android": "^241213.1.0",
     "metro-react-native-babel-preset": "^0.54.1",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.8.3",
     "react-native-testing-library": "^1.8.0",
-    "react-test-renderer": "16.8.6"
+    "react-test-renderer": "16.8.3"
   }
 }
