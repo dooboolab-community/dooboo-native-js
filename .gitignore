@@ -71,4 +71,4 @@ android/app/app-release.apk
 
 coverage/
 codecov.yml
-packge-lock.json
+package-lock.json
