@@ -18,7 +18,7 @@
     "ios": "node node_modules/react-native/local-cli/cli.js run-ios",
     "ios:release": "node node_modules/react-native/local-cli/cli.js run-ios --configuration Release",
     "ios:devices": "xcrun simctl list devices",
-    "lint": "eslint -c .eslintrc.js './src/**/*.js'",
+    "lint": "eslint -c .eslintrc.js './src/**/**/*.js'",
     "test": "jest",
     "flow": "flow",
     "build": "babel src/ -d lib/",
