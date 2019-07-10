@@ -87,6 +87,7 @@ function Button(props: Props) {
   }
   return (
     <TouchableOpacity
+      testID={props.testID}
       activeOpacity={props.activeOpacity}
       onPress={props.onClick}
     >

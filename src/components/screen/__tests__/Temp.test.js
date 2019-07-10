@@ -1,12 +1,12 @@
 import 'react-native';
 import * as React from 'react';
+
 import renderer from 'react-test-renderer';
 import { ThemeProvider } from 'styled-components/native';
-import { render, fireEvent } from 'react-native-testing-library';
+import { render, fireEvent, act, RenderResult } from '@testing-library/react-native';
 
-import { createTheme } from '../../../theme';
+import { createTheme, ThemeType } from '../../../theme';
 import Temp from '../Temp';
-import Button from '../../shared/Button';
 
 const props = {
   navigation: {
@@ -36,8 +36,10 @@ describe('[Temp] Interaction', () => {
   });
 
   it('should simulate [onClick] when [btn] has been clicked', () => {
-    const btnInstance: ReactTestInstance = renderResult.getByTestId('btn');
-    fireEvent(btnInstance, 'click');
+    const btnInstance = renderResult.getByTestId('btn');
+    act(() => {
+      fireEvent.press(btnInstance);
+    });
     expect(props.navigation.goBack).toHaveBeenCalled();
   });
 });
