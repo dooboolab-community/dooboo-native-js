@@ -38,7 +38,7 @@
   "devDependencies": {
     "@babel/cli": "^7.5.0",
     "@babel/core": "7.5.4",
-    "@babel/plugin-transform-runtime": "7.5.4",
+    "@babel/plugin-transform-runtime": "7.5.0",
     "@babel/preset-flow": "^7.0.0",
     "@babel/runtime": "7.5.0",
     "@testing-library/react-native": "^4.0.7",
