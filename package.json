@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "react": "16.8.6",
-    "react-native": "0.60.0",
+    "react-native": "0.60.1",
     "react-native-gesture-handler": "git://github.com/hyochan/react-native-gesture-handler.git#package-names",
     "react-native-localization": "^2.1.2",
     "react-native-modalbox": "^1.7.1",
