@@ -18,7 +18,7 @@ module.exports = {
     window: {},
   },
   transform: {
-    '^.+\\.js$': '<rootDir>/node_modules/react-native/jest/preprocessor.js'
+    '^.+\\.(js|jsx)$': 'babel-jest',
   },
   // testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
   moduleFileExtensions: [
@@ -34,4 +34,5 @@ module.exports = {
     '/node_modules/',
     '/src/components/screen/__tests__/testHelpers.js',
   ],
+  'cacheDirectory': '.jest/cache',
 };
