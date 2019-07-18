@@ -16,16 +16,17 @@ const initialState: State = {
     age: 0,
     job: '',
   },
+  theme: 'LIGHT',
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case 'change-theme-mode':
+      return { ...state, theme: action.payload.theme };
     case 'reset-user':
       return { ...state, user: initialState.user };
     case 'set-user':
       return { ...state, user: action.payload };
-    case 'change-theme-mode':
-      return { ...state, theme: action.payload.theme };
     default:
       return null;
   }

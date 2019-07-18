@@ -9,17 +9,34 @@ import TempScreen from '../screen/Temp';
 const routeConfig = {
   Intro: {
     screen: IntroScreen,
-    navigationOptions: {
-      title: 'Intro',
+    navigationOptions: ({ navigation, screenProps }) => {
+      const { theme } = screenProps;
+      return ({
+        title: navigation.state.routeName,
+        headerStyle: {
+          headerBackTitle: null,
+          backgroundColor: theme.background,
+        },
+        headerTitleStyle: { color: theme.fontColor },
+        headerTintColor: theme.tintColor,
+      });
     },
     path: 'intro',
   },
   Temp: {
     screen: TempScreen,
-    navigationOptions: {
-      headerTitle: <Text style={{
-        fontSize: 18,
-      }}>Temp</Text>,
+    navigationOptions: ({ navigation, screenProps }) => {
+      const { theme } = screenProps;
+      return ({
+        headerStyle: {
+          backgroundColor: theme.background,
+        },
+        headerTitle: <Text style={{
+          fontSize: 18,
+        }}>Temp</Text>,
+        headerTitleStyle: { color: theme.fontColor },
+        headerTintColor: theme.tintColor,
+      });
     },
     path: 'temp',
   },
@@ -31,34 +48,8 @@ const navigatorConfig = {
   // headerMode: 'none',
   gesturesEnabled: true,
   statusBarStyle: 'light-content',
-  navigationOptions: ({ navigation, screenProps }) => {
-    const { theme } = screenProps;
-    return ({
-      headerStyle: {
-        headerBackTitle: null,
-        backgroundColor: theme.background,
-        borderBottomColor: 'transparent',
-        borderBottomWidth: 0,
-        elevation: 0,
-      },
-      headerTitleStyle: { color: theme.fontColor },
-      headerTintColor: 'white',
-    });
-  },
 };
 
 const RootStackNavigator = createStackNavigator(routeConfig, navigatorConfig);
 
-class RootNavigator extends React.Component {
-  static router = RootStackNavigator.router;
-
-  render() {
-    return (
-      <RootStackNavigator
-        navigation={this.props.navigation}
-      />
-    );
-  }
-}
-
-export default RootNavigator;
+export default RootStackNavigator;
