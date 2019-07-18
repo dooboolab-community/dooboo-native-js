@@ -16,6 +16,7 @@ const initialState: State = {
     age: 0,
     job: '',
   },
+  theme: 'LIGHT',
 };
 
 const reducer = (state, action) => {

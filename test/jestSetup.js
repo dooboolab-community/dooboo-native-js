@@ -1,5 +1,7 @@
 import { NativeModules } from 'react-native';
 
+window.Date = Date;
+
 // console.error = (message) => {
 //   if (!/(React.createElement: type should not be null)/.test(message)) {
 //     throw new Error(message);

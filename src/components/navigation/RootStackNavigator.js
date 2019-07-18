@@ -12,15 +12,13 @@ const routeConfig = {
     navigationOptions: ({ navigation, screenProps }) => {
       const { theme } = screenProps;
       return ({
+        title: navigation.state.routeName,
         headerStyle: {
           headerBackTitle: null,
           backgroundColor: theme.background,
-          borderBottomColor: 'transparent',
-          borderBottomWidth: 0,
-          elevation: 0,
         },
         headerTitleStyle: { color: theme.fontColor },
-        headerTintColor: 'white',
+        headerTintColor: theme.tintColor,
       });
     },
     path: 'intro',
@@ -31,17 +29,13 @@ const routeConfig = {
       const { theme } = screenProps;
       return ({
         headerStyle: {
-          headerBackTitle: null,
           backgroundColor: theme.background,
-          borderBottomColor: 'transparent',
-          borderBottomWidth: 0,
-          elevation: 0,
         },
         headerTitle: <Text style={{
           fontSize: 18,
         }}>Temp</Text>,
         headerTitleStyle: { color: theme.fontColor },
-        headerTintColor: 'white',
+        headerTintColor: theme.tintColor,
       });
     },
     path: 'temp',
