@@ -55,7 +55,7 @@
     "flow-bin": "^0.98.0",
     "jest": "24.8.0",
     "jsc-android": "^241213.1.0",
-    "metro-react-native-babel-preset": "^0.55.0",
+    "metro-react-native-babel-preset": "^0.56.0",
     "react-dom": "^16.8.6",
     "react-test-renderer": "16.8.6"
   }
